@@ -1,0 +1,47 @@
+.menu-sliding{
+    position: fixed;
+    z-index: 1000;
+    left: 0; 
+    margin-left: -250px;
+    &.active{
+        //display:block;
+        //margin-left: 0;
+    }
+}
+
+.menu-mobile {
+        
+    .menu-mobile-navbar {
+        position: relative;
+        z-index: 1;
+
+        .menu-mobile-search-icon {
+            width: 0;
+            padding: 0;
+            @include transform(scale(0));
+            @include transition(all 0.2s ease-in-out);
+            
+            &.active {
+                width: $dimen-1x;
+                padding-left: $dimen-md;
+                padding-right: $dimen-md;
+                @include transform(scale(1));
+                @include transition(all 0.2s ease-in-out);
+                
+            }
+        }
+
+    }
+
+    .menu-mobile-search {
+        position: absolute;
+        z-index: -1;
+        @include transform(translateY(-$full));
+        @include transition(all 0.2s ease-in-out);
+        
+        &.active {
+            position: relative;
+            @include transform(translateY(0px));
+        }
+    }
+}

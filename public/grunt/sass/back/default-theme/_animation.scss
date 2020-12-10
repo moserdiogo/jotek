@@ -1,0 +1,74 @@
+// Fade
+@keyframes fadeIn {
+    0% {
+        display: block;
+        opacity: 0
+    }
+
+    25% {
+        opacity: 0.25
+    }
+
+    50% {
+        opacity: 0.5
+    }
+
+    75% {
+        opacity: 0.75
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.75
+    }
+
+    50% {
+        opacity: 0.5
+    }
+
+    75% {
+        opacity: 0.25;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+// Spin
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

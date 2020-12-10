@@ -1,0 +1,365 @@
+// Modal background container
+.md-bg {
+    //@extend .ct-fl; // Container fluid
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1050;
+    overflow: auto;
+    background-position: center center !important;
+    background-size: cover !important;
+    padding-top: $modal-padding-top;
+    padding-bottom: $modal-padding-bottom;
+    transition: $modal-transition;
+    background-color: $modal-background-color;
+    @include animation($modal-transition);
+
+    &.rise {
+        .md-pn {
+            @include animation($modal-rise-animation);
+        }
+    }
+
+    &.scale {
+        .md-pn {
+            @include animation($modal-scale-animation);
+        }
+    }
+
+    &.shake {
+        .md-al > div {
+            @include animation($modal-shake-animation);
+        }
+    }
+
+    &.hide {
+        @include animation($modal-hide-animation);
+        &.rise {
+            .md-pn {
+                @include animation($modal-hide-rise-animation);
+            }
+        }
+        &.scale {
+            .md-pn {
+                @include animation($modal-hide-scale-animation);
+            }
+        }
+    }
+    
+    // Modal row alinhamento
+    .md-al {
+        //@extend .row; // Bootstrap/grid. Ver se pode ser deixado
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;    
+        height: $full;
+        
+        // Flex bug // TODO: bug no safari
+        &.al-it-c {
+            >[class*="col-"] {
+                margin: auto;
+            }
+        }
+        
+        // Modal panel
+        .md-pn {
+            position: relative;
+            background-color: $modal-panel-background-color;
+            //@include border-radius($modal-panel-border-radius);
+            //@include material-shadow($modal-panel-material-shadow);
+
+            // Botão de fechar do modal
+            .md-close {
+                //@extend .ic;
+                /* use !important to prevent issues with browser extensions that change fonts */
+                font-family: 'CofryIcons' !important;
+                speak: none;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                /* Better Font Rendering =========== */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+
+                //@extend .ic-close;
+                .ic-close{
+                    content: "\e909";
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    padding: $dimen-md;
+                    margin: $dimen-md;
+                    z-index: 1;
+                    //color: $color-white; // $modal-close-text-color: $color-black;
+                    cursor: pointer;
+                }
+                
+            }
+
+            // Modal tools
+            .md-hd-tl {
+                //@extend .col-auto; //bootstrap/mixins/_grid-framework.scss
+                flex: 0 0 auto;
+                width: auto;
+                max-width: none;
+
+                padding-bottom: $dimen-md; 
+                
+            }
+
+            // Modal heading
+            .md-hd {
+                position: relative;
+                height: $modal-panel-header-height;
+                @include border-top-left-radius($modal-panel-header-border-top-left-radius);
+                @include border-top-right-radius($modal-panel-header-border-top-right-radius);
+                border-bottom: $modal-panel-heading-border-bottom;
+                
+                // Sem divisor
+                &.no-dv {
+                    border-bottom: unset;
+                    .btn {
+                        margin-bottom: $modal-heading-no-division-margin-bottom;
+                    }
+                }
+                
+                // Modal header container
+                .md-hd-ct {
+                    //@extend .ct-fl; // Conteiner fluid do bootstrap/grid
+                    width: 100%;
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    margin-right: auto;
+                    margin-left: auto;
+
+                    height: $full;
+
+                    // Modal header row
+                    .md-hd-row {
+                        //@extend .row; // Bootstrap/grid
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-right: -15px;
+                        margin-left: -15px;
+
+                        height: $full;
+                        align-items: $modal-heading-container-align-items;
+                        
+                        // Modal title
+                        .md-hd-c {
+                            //@extend .col; // bootstrap/mixins/_grid-framework.scss
+                            flex-basis: 0;
+                            flex-grow: 1;
+                            max-width: 100%;
+
+                            font-size: $modal-heading-title-font-size;
+                            //@extend .tx-ct;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            padding-bottom: $dimen-md;
+                        }
+                    }
+                }
+            }
+            
+            // Modal content
+            .md-ct {
+                padding: $dimen-1x;
+
+                &.no-pd {
+                    padding: 0;
+                }
+            }
+            
+            // Modal footer
+            .md-ft {
+                min-height: $dimen-1x;
+                @include border-bottom-left-radius($dimen-xs);
+                @include border-bottom-right-radius($dimen-xs);
+                border-top: $modal-footer-border-top;
+
+                &.no-dv {
+                    border-top: unset;
+                }
+
+                // Modal footer container
+                .md-ft-ct {
+                    //@extend .ct-fl; // Container fluid sass/bootstrap/_grid.scss
+                    width: 100%;
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    
+                    padding-bottom: $modal-footer-content-padding-bottom;  
+                    padding-top: $modal-footer-content-padding-top;
+                    height: $full;
+
+                    // Modal footer row
+                    .md-ft-row {
+                        //@extend .row; // sass/bootstrap/_grid.scss
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-right: -15px;
+                        margin-left: -15px;
+                        
+                        height: $full;
+                        align-items: center !important;
+
+                        // Modal footer content
+                        .md-ft-c {
+                            //@extend .col-auto; // bootstrap/mixins/_grid-framework.scss
+                            flex: 0 0 auto;
+                            width: auto;
+                            max-width: none;
+
+                            > button + button {
+                                margin-left: $dimen-sm;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+        
+    // Modal estilo Alert
+    &.alert {
+        
+        // Panel
+        .md-pn {
+            
+            .md-close {
+                color: $color-black;
+                top: $dimen-sm;
+            }
+
+            // Override
+            .md-hd {
+                height: unset;
+                background-color: $modal-alert-header-background-color;
+                text-align: center;
+                border-bottom: unset;
+
+                .md-hd-c {
+                    color: $modal-header-content-text-color;
+                    font-weight: bold;
+                    font-size: $font-h4;
+                }
+
+                .md-hd-tl {
+                    position: absolute !important;
+                    color: $color-black;
+                    right: 0;
+                    top: $dimen-md;
+                    i {
+                        font-size: $font-xl;
+                    }
+                }
+
+                .md-hd-i {
+                    font-size: $dimen-4x;
+                    padding-top: $dimen-1x;
+                    padding-bottom: $dimen-1x;
+                    //color: $color-black;
+                    width: $full;
+                    @include animation(scaleIn linear $time-default);
+                    animation-fill-mode: backwards;
+                    animation-delay: $time-default;
+                }
+            }
+
+            .md-ct {
+                text-align: center;
+            }
+
+            .md-ft {
+                border-top: unset;
+                padding-bottom: $dimen-1x;
+            }
+        }
+        
+    }
+    
+    // Fullscreen modal
+    &.fullscreen {
+        background-color: $modal-fullscreen-background-color;
+        .md-pn {
+            background-color: $color-alpha;
+            box-shadow: unset;
+
+            .md-close {
+                font-size: $modal-fullscreen-close-font-size;
+                color: $modal-fullscreen-close-text-color;
+                top: - $dimen-1x;
+            }
+
+            .md-hd {
+                height: unset;
+                text-align: center;
+                border-bottom: unset;
+
+                .md-hd-c {
+                    color: $modal-fullscreen-header-content-text-color;
+                    font-weight: bold;
+                    font-size: $modal-fullscreen-header-content-font-size;
+                }
+                
+                .md-hd-i {
+                    vertical-align: baseline;
+                    margin-right: $dimen-sm;
+                    display: inline-block;
+                    color: $modal-fullscreen-icon-color;
+                    padding-right: $dimen-md;
+                    @include animation(scaleIn linear $time-default);
+                    animation-fill-mode: backwards;
+                    animation-delay: $time-default;
+                }
+            }
+            .md-ct {
+                color: $modal-fullscreen-container-text-color;
+                text-align: center;
+            }
+            .md-ft {
+                border-top: unset;
+                .btn {
+                    background-color: $modal-fullscreen-btn-background-color;
+                    border-color: $modal-fullscreen-btn-border-color;
+                    color: $modal-fullscreen-btn-text-color;
+                    * {
+                        color: $color-white;
+                    }
+                    &:hover {
+                        background-color: $modal-fullscreen-btn-background-color-hover;
+                        border-color: $modal-fullscreen-btn-border-color-hover;
+                        ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Loop de cores dos modais default
+@each $key, $color in $modal-colors {
+    @include modal-colored($key, $color);
+}
+
+// Loop de cores dos modais alerts
+@each $key, $color in $modal-colors {
+    @include modal-alert-colored($key, $color);
+}

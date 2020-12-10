@@ -1,0 +1,27 @@
+<h2>Página de testes</h2>
+
+
+
+<script>
+
+    $(document.ready(function() {
+        $.ajax({
+            url: BASE_DOMAIN + "search/getFilterList",
+            method: "POST",
+            data: {
+                config: self.encryption.encrypt(JSON.stringify({
+                    getList: true
+                }), API_KEY_TOKEN)
+            },
+            success: function(data) {
+
+                
+                
+            },
+            error: function(error) {
+                console.log(error)
+            }
+        })
+    }));
+
+</script>

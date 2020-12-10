@@ -1,0 +1,11 @@
+.user-address-list {
+
+    .animate {
+        animation: updateRow $time-medium 1 ease-out forwards;
+        
+    }
+
+    .remove-animate {
+        animation: deleteRow $time-medium 1 ease-out forwards;
+    }
+}

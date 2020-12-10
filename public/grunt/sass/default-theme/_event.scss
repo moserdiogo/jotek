@@ -1,0 +1,39 @@
+.event-effect-circle i {
+    font-size: 0px;
+    transform: scale(1.1);
+}
+
+/* .event-effect-arrow-right:hover i {
+    font-size: 16px;
+    transition-duration: 0.4s;
+} */
+
+.photo-event{ 
+    left: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    -moz-transform: translate3d(0, -50%, 0);
+    -ms-transform: translate3d(0, -50%, 0);
+    -o-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+}
+
+.event {
+    height: 800px;
+    background-color: $color-white;
+    position: relative;
+}
+
+.scene-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: inline-block;
+}
+
+.event-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }

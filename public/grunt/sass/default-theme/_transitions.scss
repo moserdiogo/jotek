@@ -1,0 +1,15 @@
+.color-transition {@include transition(color $time-default $ease);}
+
+.background-transition {@include transition(background $time-default $ease);}
+
+.color-background-transition {@include transition(color $time-default $ease, background-color $time-default $ease);}
+
+.opacity-visibility-transition {@include transition(visibility $time-default $ease, opacity $time-default $ease);}
+
+.transition-all {@include transition(all $time-default $ease);}
+
+.opacity-transition {@include transition(opacity $time-default linear);}
+
+.left-right-transition {@include transition (left $time-medium $ease, right $time-medium $ease);}
+
+.width-transition {@include transition(width $time-medium $ease);}

@@ -1,0 +1,10 @@
+// Código de estilização dos destaques da categoria
+.highlight-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    min-height: 130px;
+    max-height: 130px;
+}

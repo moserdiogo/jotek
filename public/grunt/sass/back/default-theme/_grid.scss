@@ -1,0 +1,62 @@
+/* Grid */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.ct {
+    width: 100%;
+    padding-right: $gutter-1x;
+    padding-left: $gutter-1x;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.ct-fl {
+    width: 100%;
+    padding-right: $gutter-1x;
+    padding-left: $gutter-1x;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: - $gutter-1x;
+    margin-left: - $gutter-1x;
+}
+
+// Inclui a mixin que geram as colunas
+@include grid-columns($grid-columns, $gutter-1x, $breakpoints);
+
+// Inclui a mixin que geram os containers
+@include grid-containers($container-widths, $breakpoints);
+
+// Inclui as mixins que geram as classes de alinhamento
+@each $key, $value in $grid-align {
+
+    // Vertical
+    @include grid-align-vertical($key, $value);
+
+    // Horizontal
+    @include grid-align-horizontal($key, $value);
+}
+
+// Espaçamento entre colunas do grid
+@each $key, $value in $gutters {
+    
+    // Gera os gutters
+    @include gutter($key, $value);
+
+    // Gera classes para o padding do container ficar igual ao espaçamento entre colunas
+    @include grid-containers-gutters($key, $value);
+}
+
+// Espaçamento entre linhas do grid
+@each $key, $value in $dimens {
+    
+    // Espaçamento entre linhas
+    @include row-sp($key, $value);
+}

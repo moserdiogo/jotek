@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <!-- Cabeçalho - inicio -->
+    <?php require('components/head.phtml') ?>
+    <!-- Cabeçalho - fim -->
+    <body class="">
+        
+        <?php echo $this->getContent(); ?>
+
+        <!-- Script - Início -->
+        <?php $this->assets->outputJs(); ?>
+        <!-- Script - Fim -->
+    </body>
+</html>

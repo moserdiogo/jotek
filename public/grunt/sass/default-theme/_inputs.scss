@@ -1,0 +1,41 @@
+::-webkit-input-placeholder {
+    font-size: $font-md;
+    color: $color-secundary !important;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    font-size: $font-md;
+    color: $color-secundary !important; 
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    font-size: $font-md;
+    color: $color-secundary !important; 
+ }
+ 
+ :-ms-input-placeholder {  
+    font-size: $font-md;
+    color: $color-secundary !important; 
+ }
+
+input, textarea {
+    font-size: $font-md;
+}
+
+select {
+    font-size: $font-md;
+}
+
+// Altera a cor de fundo do autocomplete, compatível com Chrome, Opera e Safari
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+   //-webkit-box-shadow: 0 0 0px 1000px $color-white inset;
+}

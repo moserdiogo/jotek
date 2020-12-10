@@ -1,0 +1,38 @@
+.banner {
+    display: block;
+    position: relative;
+
+    &.banner-zoom {
+        overflow: hidden;
+        > img {
+            transform: scale(1);
+            @include transition(all $time-default ease-in-out);
+        }
+        &:hover {
+            > img {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .banner-caption {
+        position: absolute;
+        width: $full;
+        top: 0;
+        bottom: 0;
+
+        span {
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+        }
+
+        .dark-background {
+            background-color: #1e150f;
+        }
+
+        .row {
+            display: inline-grid;
+            display: inline-grid;
+        }
+    }
+}

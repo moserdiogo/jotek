@@ -1,0 +1,342 @@
+// Dimensões
+$dimen-xxs: 1px;
+$dimen-xs: 3px;
+$dimen-sm: 5px;
+$dimen-md: 7.5px; 
+$dimen-0x: 0;
+$dimen-1x: 15px;
+$dimen-2x: ($dimen-1x * 2);
+$dimen-3x: ($dimen-1x * 3);
+$dimen-4x: ($dimen-1x * 4);
+$dimen-5x: ($dimen-1x * 5);
+$dimen-6x: ($dimen-1x * 6);
+$dimen-7x: ($dimen-1x * 7);
+$dimen-8x: ($dimen-1x * 8);
+$dimen-9x: ($dimen-1x * 9);
+$dimen-10x: ($dimen-1x * 10);
+$full: 100%;
+$half: 50%;
+ 
+$dimens: (
+    xxs: $dimen-xxs,
+    xs: $dimen-xs,
+    sm: $dimen-sm,
+    md: $dimen-md,
+    0: $dimen-0x,
+    1: $dimen-1x,
+    2: $dimen-2x,
+    3: $dimen-3x,
+    4: $dimen-4x,
+    5: $dimen-5x,
+    6: $dimen-6x,
+    7: $dimen-7x,
+    8: $dimen-8x,
+    9: $dimen-9x,
+    10: $dimen-10x
+);
+
+// Breakpoints
+$breakpoints: (
+    xs: 0px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1900px,
+    xxxl: 3000px
+);
+
+// Fontes
+$font-xxs: 9px;
+$font-xs: 11px;
+$font-sm: 12px;
+$font-md: 13px;
+$font-lg: 14px;
+$font-xl: 16px;
+$font-xxl:20px;
+
+
+$font-sizes:(
+    xxs: $font-xxs,
+    xs: $font-xs,
+    sm: $font-sm,
+    md: $font-md,
+    lg: $font-lg,
+    xl: $font-xl,
+    xxl: $font-xxl   
+);
+
+// Tamanhos de cabeçalhos
+$font-h1: 44px;
+$font-h2: 28px;
+$font-h3: 24px;
+$font-h4: 20px;
+$font-h5: 16px;
+$font-h6: 12px;
+
+$heading-sizes:(
+    1: $font-h1,
+    2: $font-h2,
+    3: $font-h3,
+    4: $font-h4,
+    5: $font-h5,
+    6: $font-h6
+);
+
+// Espaçamento entre linhas
+$line-heights:( 
+    sm: 1.0,
+    md: 1.5,
+    lg: 2.0
+);
+
+// Cores do tema
+$color-white: #ffffff;
+$color-black: #000000;
+$color-primary: #092d4c; //#96694d;
+$color-secundary: #c6a079;
+$color-third: #f5f2eb;
+$color-accent: #ee212b; //#ec3b00;
+$color-default: #b0b0b0;
+$color-info: #9900FF;
+$color-success: #68ca63;
+$color-warning: #FFAA00; 
+$color-danger: #F44336;
+$color-smoke: rgba(0, 0, 0, 0.4);
+$color-facebook: #4267b2;
+$color-whatsapp: #4dc247;
+$color-twitter: #1da1f2;
+$color-netflix: rgba(57, 61, 88, 1); //modal
+$color-alpha: transparent;
+
+$theme-colors: (
+    pm: $color-primary,
+    sd: $color-secundary,
+    th: $color-third,
+    ac: $color-accent,
+    df: $color-default,
+    sc: $color-success, 
+    if: $color-info,
+    wn: $color-warning,
+    dg: $color-danger,
+    bk: $color-black,
+    wt: $color-white,
+    fb: $color-facebook
+);
+
+$color-light-scale: (
+    50: 10%,
+    100: 20%,
+    200: 40%,
+    300: 60%,
+    400: 80%
+);
+
+$color-dark-scale: (
+    900: 20%,
+    800: 40%,
+    700: 60%,
+    600: 80%
+);
+
+// Cor primária clara e escura:
+$color-primary-light: #f5f6ff;
+$color-primary-dark: #1d1f30;
+
+// Cor primária
+$color-primary-20: mix($color-primary-light, $color-primary, 20%);
+$color-primary-40: mix($color-primary-light, $color-primary, 40%);
+$color-primary-60: mix($color-primary-light, $color-primary, 60%);
+$color-primary-80: mix($color-primary-light, $color-primary, 80%);
+$color-primary-100: mix($color-primary-light, $color-primary, 100%);
+$color-primary-d20: mix($color-primary-dark, $color-primary, 20%);
+$color-primary-d40: mix($color-primary-dark, $color-primary, 40%);
+$color-primary-d60: mix($color-primary-dark, $color-primary, 60%);
+$color-primary-d80: mix($color-primary-dark, $color-primary, 80%);
+$color-primary-d100: mix($color-primary-dark, $color-primary, 100%);
+$color-primary-a90: rgba($color-primary, 0.90);
+$color-primary-a80: rgba($color-primary, 0.80);
+
+// Cor secundária clara e escura:
+$color-secundary-light: #f5f6ff;
+$color-secundary-dark: #1d1f30;
+
+// Cor secundária
+$color-secundary-20: mix($color-secundary-light, $color-secundary, 20%);
+$color-secundary-40: mix($color-secundary-light, $color-secundary, 40%);
+$color-secundary-60: mix($color-secundary-light, $color-secundary, 60%);
+$color-secundary-80: mix($color-secundary-light, $color-secundary, 80%);
+$color-secundary-100: mix($color-secundary-light, $color-secundary, 100%);
+$color-secundary-d20: mix($color-secundary-dark, $color-secundary, 20%);
+$color-secundary-d40: mix($color-secundary-dark, $color-secundary, 40%);
+$color-secundary-d60: mix($color-secundary-dark, $color-secundary, 60%);
+$color-secundary-d80: mix($color-secundary-dark, $color-secundary, 80%);
+$color-secundary-d100: mix($color-secundary-dark, $color-secundary, 100%);
+$color-secundary-a90: rgba($color-secundary, 0.90);
+$color-secundary-a80: rgba($color-secundary, 0.80);
+
+// Cor terceira clara e escura:
+$color-third-light: #f5f6ff;
+$color-third-dark: #1d1f30;
+
+// Cor terceira
+$color-third-20: mix($color-third-light, $color-third, 20%);
+$color-third-40: mix($color-third-light, $color-third, 40%);
+$color-third-60: mix($color-third-light, $color-third, 60%);
+$color-third-80: mix($color-third-light, $color-third, 80%);
+$color-third-100: mix($color-third-light, $color-third, 100%);
+$color-third-d20: mix($color-third-dark, $color-third, 20%);
+$color-third-d40: mix($color-third-dark, $color-third, 40%);
+$color-third-d60: mix($color-third-dark, $color-third, 60%);
+$color-third-d80: mix($color-third-dark, $color-third, 80%);
+$color-third-d100: mix($color-third-dark, $color-third, 100%);
+$color-third-a90: rgba($color-third, 0.90);
+$color-third-a80: rgba($color-third, 0.80);
+
+// Cor Padrão clara e escura:
+$color-default-light: #f5f6ff;
+$color-default-dark: #1d1f30;
+
+// Cor padrão
+$color-default-20: mix($color-default-light, $color-default, 20%);
+$color-default-40: mix($color-default-light, $color-default, 40%);
+$color-default-60: mix($color-default-light, $color-default, 60%);
+$color-default-80: mix($color-default-light, $color-default, 80%);
+$color-default-100: mix($color-default-light, $color-default, 100%);
+$color-default-d20: mix($color-default-dark, $color-default, 20%);
+$color-default-d40: mix($color-default-dark, $color-default, 40%);
+$color-default-d60: mix($color-default-dark, $color-default, 60%);
+$color-default-d80: mix($color-default-dark, $color-default, 80%);
+$color-default-d100: mix($color-default-dark, $color-default, 100%);
+$color-default-a90: rgba($color-default, 0.90);
+$color-default-a80: rgba($color-default, 0.80);
+
+
+/* Transition time */
+$time-fast: 0.1s;
+$time-default: 0.2s;
+$time-medium: 0.4s;
+$time-slow: 0.8s;
+$ease: ease-in-out;
+
+// Bordas
+$border-width-1: 1px;
+$border-width-2: 2px;
+$border-width-3: 3px;
+$border-width-4: 4px;
+$border-width-5: 5px;
+$border-width-6: 6px;
+
+$border-width: (
+    1: $border-width-1,
+    2: $border-width-2,
+    3: $border-width-3,
+    4: $border-width-4,
+    5: $border-width-5,
+    6: $border-width-6
+);
+
+$border-styles: (
+    sl: solid,
+    dt: dotted,
+    ds: dashed
+);
+
+// Grid
+$grid-columns: 12;
+$gutter-xs: 3px;
+$gutter-sm: 5px;
+$gutter-md: 7.5px;
+$gutter-1x: 15px;
+$gutter-2x: 30px;
+$gutter-3x: 45px;
+
+$gutters: (
+    xs: $gutter-xs,
+    sm: $gutter-sm,
+    md: $gutter-md,
+    1: $gutter-1x,
+    2: $gutter-2x,
+    3: $gutter-3x
+);
+
+// Trudys
+$container-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px, //
+    //xxl: 1600px,
+    //xxxl: 2500px
+);
+
+$grid-align: (
+    b: space-between,
+    e: flex-end,
+    s: flex-start,
+    c: center
+);
+
+// Traço do texto
+$text-stroke: (
+    sm: thin, 
+    md: medium,
+    lg: thick
+);
+
+// Opacidade
+$opacities: (
+    0: 0,
+    25: 0.25,
+    75: 0.75,
+    1: 1
+);
+
+// Z-indexes
+$z-indexes: (
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+);
+
+// Transições
+$transition-all-default: all $time-default $ease;
+$transition-all-window: all $time-medium $ease;
+$transition-all-fast: all $time-fast $ease;
+
+// Checkbox
+$checkbox-label-text-color: $color-primary;
+$checkbox-label-padding-left: $dimen-2x;
+$checkbox-label-font-size: $font-md;
+$checkbox-label-line-height: $dimen-1x + $dimen-sm;
+$checkbox-label-before-width: $dimen-1x + $dimen-sm;
+$checkbox-label-before-height: $dimen-1x + $dimen-sm;
+$checkbox-label-before-border-radius: $dimen-xs;
+$checkbox-label-before-border: solid 1px $color-primary;
+//$checkbox-label-before-transition: $transition-all-default;
+$checkbox-label-after-font-size: $font-md;
+$checkbox-label-after-text-color: $color-primary;
+$checkbox-checked-text-color: $color-success;
+$checkbox-checked-border: $dimen-xxs solid $color-success;
+$checkbox-disabled-text-color: $color-default;
+
+// Radio Buttons
+$radio-group-label-text-color: $color-primary;
+$radio-group-label-font-size: $font-sm;
+$radio-label-font-size: $font-md;
+$radio-label-padding-label: $dimen-2x;
+$radio-label-text-color: $color-primary;
+$radio-label-line-height: $dimen-1x + $dimen-sm;
+$radio-label-before-transition: $transition-all-default;
+$radio-label-before-width: $dimen-1x + $dimen-sm;
+$radio-label-before-height: $dimen-1x + $dimen-sm;
+$radio-label-before-border: 1px solid black;
+$radio-checked-label-before-text-color: $color-success;
+$radio-checked-label-after-width: $dimen-sm + $dimen-sm + $dimen-xxs + $dimen-xxs;
+$radio-checked-label-after-height: $dimen-sm + $dimen-sm + $dimen-xxs + $dimen-xxs;
+$radio-checked-label-after-background-color: $color-success;
+$radio-checked-label-after-border-color: $color-success;
+$radio-disabled-label-text-color: $color-default;
+$radio-disabled-label-after-text-color: $color-default;

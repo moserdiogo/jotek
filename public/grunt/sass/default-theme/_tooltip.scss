@@ -1,0 +1,110 @@
+.tooltip{
+	position: relative;
+	
+	&:before, &:after{
+		user-select: none;
+		pointer-events: none;
+		position: absolute;
+		display: none;
+		opacity: 0; 
+	}
+	&:before{
+		content: '';
+		border: $dimen-sm solid transparent;
+		z-index: 1001;
+	}
+	&:after{
+		content: attr(data-tooltip);
+		min-width: $dimen-3x;
+		max-width: $dimen-6x + $dimen-6x;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		padding: $dimen-md;
+    font-size: $font-md;
+		z-index: 1000;
+    background: $color-secundary;
+    color: $color-white;
+	}
+  
+  //hover
+	&-right, &-left{
+		&:hover{
+			&:before, &:after{
+				display:block;
+				animation: tooltipHorizontal 300ms ease-out forwards;
+			}
+		}
+	}
+	&-down, &-up, &:not(&-right):not(&-left):not(&-down){
+		&:hover{
+			&:before, &:after{
+				display:block;
+				animation: tooltipVertical 300ms ease-out forwards;
+			}
+		}
+	}
+	//cima
+  &-up, &:not(&-right):not(&-left):not(&-down){
+    &:before{
+      bottom: 120%;
+      border-bottom-width: 0;
+      border-top-color: $color-secundary;
+    } 
+    &:after{bottom: calc( 100% + 10px);}
+    &:before, &:after{
+      left: $half;
+      transform: translate(-$half, -.5em);
+    }
+  }
+	//baixo
+  &-down{
+    &:before{
+      top: 122%;
+      border-top-width: 0;
+      border-bottom-color: $color-secundary;
+    }
+    &:after{top: calc(100% + 10px);}
+    &:before, &:after{
+      left: $half;
+      transform: translate(-$half, .5em);
+    }
+  }
+	//esquerda
+  &-left{
+    &:before{
+      border-right-width: 0;
+      border-left-color: $color-secundary;
+      left: calc(0em - 10px);
+      transform: translate(-.5em, -$half);
+    }
+    &:after{
+      right: calc(100% + 10px);
+      transform: translate(-.5em, -$half);
+    }
+  }
+	//direita 
+  &-right{
+    &:before{
+      border-left-width: 0;
+      border-right-color: $color-secundary;
+      right: calc(0em - 10px);
+      transform: translate(.5em, -$half);
+    }
+    &:after{
+      left: calc(100% + 10px);
+      transform: translate(.5em, -$half);
+    }
+  }
+  &-left, &-right{
+    &:before, &:after{
+      top: $half;
+    }
+  }	
+}
+
+.tooltip-ct {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}

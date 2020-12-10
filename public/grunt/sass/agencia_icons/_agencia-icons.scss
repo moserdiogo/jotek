@@ -1,0 +1,577 @@
+@font-face {
+    font-family: 'AgenciaIcons';
+    display: 'swap';
+    src:url('font/Agencia/font3933.eot') format('eot'),
+        url('font/Agencia/font3933.svg') format('svg'), 
+        url('font/Agencia/font3933.woff2') format('woff2'),
+        url('font/Agencia/font3933.woff') format('woff'),
+        url('font/Agencia/font3933.ttf') format('truetype');
+}
+
+.ic {
+    font-family: 'AgenciaIcons';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+
+    &.ic-chevron-up:before {
+        content: "\61";
+    }
+
+    &.ic-chevron-down:before {
+        content: "\41";
+    }
+
+    &.ic-bars:before {
+        content: "\62"; 
+    }
+
+    &.ic-apps:before {
+        content: "\42";
+    }
+
+    &.ic-chart-pie:before {
+        content: "\63";
+    }
+
+    &.ic-chart-bars:before {
+        content: "\43";
+    }
+
+    &.ic-cog:before {
+        content: "\64";
+    }
+
+    &.ic-exit:before {
+        content: "\44";
+    }
+
+    &.ic-envelope:before {
+        content: "\65";
+    }
+
+    &.ic-envelope-plus:before {
+        content: "\45";
+    }
+
+    &.ic-edit:before {
+        content: "\66";
+    }
+
+    &.ic-edit-page:before {
+        content: "\46";
+    }
+
+    &.ic-bell:before {
+        content: "\67";
+    }
+
+    &.ic-list:before {
+        content: "\47";
+    }
+
+    &.ic-bag:before {
+        content: "\68";
+    }
+
+    &.ic-money-sign:before {
+        content: "\48";
+    }
+
+    &.ic-info-circle:before {
+        content: "\69";
+    }
+
+    &.ic-question-circle:before {
+        content: "\49";
+    }
+
+    &.ic-cart-arrow:before {
+        content: "\6a";
+    }
+
+    &.ic-cart:before {
+        content: "\4a";
+    }
+
+    &.ic-file:before {
+        content: "\6b";
+    }
+
+    &.ic-file-blank:before {
+        content: "\4b";
+    }
+
+    &.ic-folder:before {
+        content: "\6c";
+    }
+
+    &.ic-gift:before {
+        content: "\4c";
+    }
+
+    &.ic-heart:before {
+        content: "\6d";
+    }
+
+    &.ic-star:before {
+        content: "\4d";
+    }
+
+    &.ic-home:before {
+        content: "\6e";
+    }
+
+    &.ic-bank:before {
+        content: "\4e";
+    }
+
+    &.ic-outbox:before {
+        content: "\6f";
+    }
+
+    &.ic-inbox:before {
+        content: "\4f";
+    }
+
+    &.ic-lamp:before {
+        content: "\70";
+    }
+
+    &.ic-trash:before {
+        content: "\50";
+    }
+
+    &.ic-magnifier:before {
+        content: "\71";
+    }
+
+    &.ic-schedule:before {
+        content: "\51";
+    }
+
+    &.ic-bar-code:before {
+        content: "\72";
+    }
+
+    &.ic-credit-card:before {
+        content: "\52";
+    }
+
+    &.ic-mobile:before {
+        content: "\73";
+    }
+
+    &.ic-computer:before {
+        content: "\53";
+    }
+
+    &.ic-printer:before {
+        content: "\74";
+    }
+
+    &.ic-camera:before {
+        content: "\54";
+    }
+
+    &.ic-user:before {
+        content: "\75";
+    }
+
+    &.ic-stock:before {
+        content: "\55";
+    }
+
+    &.ic-check:before {
+        content: "\76";
+    }
+
+    &.ic-check-circle:before {
+        content: "\56";
+    }
+
+    &.ic-support:before {
+        content: "\77";
+    }
+
+    &.ic-warning:before {
+        content: "\57";
+    }
+
+    &.ic-close:before {
+        content: "\78";
+    }
+
+    &.ic-standby:before {
+        content: "\58";
+    }
+
+    &.ic-close-circle:before {
+        content: "\79";
+    }
+
+    &.ic-restore:before {
+        content: "\59";
+    }
+
+    &.ic-text:before {
+        content: "\7a";
+    }
+
+    &.ic-design:before {
+        content: "\5a";
+    }
+
+    &.ic-arrow-left:before {
+        content: "\30";
+    }
+
+    &.ic-arrow-right:before {
+        content: "\31";
+    }
+
+    &.ic-arrow-up:before {
+        content: "\32";
+    }
+
+    &.ic-arrow-down:before {
+        content: "\33";
+    }
+
+    &.ic-cake:before {
+        content: "\34";
+    }
+
+    &.ic-calendar:before {
+        content: "\35";
+    }
+
+    &.ic-language:before {
+        content: "\36";
+    }
+
+    &.ic-eye:before {
+        content: "\37";
+    }
+
+    &.ic-scales:before {
+        content: "\38";
+    }
+
+    &.ic-location:before {
+        content: "\39";
+    }
+
+    &.ic-picture:before {
+        content: "\21";
+    }
+
+    &.ic-finances:before {
+        content: "\24";
+    }
+
+    &.ic-percent:before {
+        content: "\25";
+    }
+
+    &.ic-close-chip:before {
+        content: "\27";
+    }
+
+    &.ic-payment-cash:before {
+        content: "\28";
+    }
+
+    &.ic-report:before {
+        content: "\29";
+    }
+
+    &.ic-list-view:before {
+        content: "\2A";
+    }
+
+    &.ic-plus:before {
+        content: "\2B";
+    }
+
+    &.ic-minus:before {
+        content: "\2D";
+    }
+
+    &.ic-dots:before {
+        content:"\2E";
+    }
+
+    &.ic-tag:before {
+        content:"\3B";
+    }
+
+    &.ic-chevron-left:before {
+        content: "\3C";
+    }
+
+    &.ic-chevron-right:before {
+        content: "\3E";
+    }
+
+    &.ic-grid-view:before {
+        content: "\3F";
+    }
+
+    &.ic-arrow-up-dw:before {
+        content: "\40";
+    }
+
+    &.ic-arrow-l-r:before {
+        content: "\23";
+    }
+
+    &.ic-members:before {
+        content: "\26";
+    }
+
+    &.ic-clock:before {
+        content: "\3A";
+    }
+
+    &.ic-user-tie:before {
+        content: "\3D";
+    }
+
+    &.ic-checkmark:before {
+        content: "\2C";
+    }
+
+    &.ic-subclasses:before {
+        content: "\5E";
+    }
+
+    &.ic-modules:before {
+        content: "\7E";
+    }
+
+    &.ic-facebook:before {
+        content: "\5F";
+    }
+
+    &.ic-truck:before {
+        content: "\60";
+    }
+
+    &.ic-instagram:before {
+        content: "\7C";
+    }
+
+    &.ic-google:before {
+        content: "\7B";
+    }
+
+    &.ic-twitter:before {
+        content: "\7D";
+    }
+
+    &.ic-developer:before {
+        content: "\5B";
+    }
+
+    &.ic-thumbs-up:before {
+        content: "\5D";
+    }
+
+    &.ic-thumbs-down:before {
+        content: "\5C";
+    }
+
+    &.ic-whatsapp:before {
+        content:"\22";
+    }
+
+    &.ic-table:before {
+        content:"\2F";
+    }
+
+    &.ic-circle:before {
+        content: "\002660";
+    }
+
+    &.ic-refresh:before {
+        content: "\002663";
+    }
+
+    &.ic-lock:before {
+        content: "\002665";
+    }
+
+    &.ic-youtube:before {
+        content: "\002666";
+    }
+
+    &.ic-paragraph:before {
+        content: "\0000B6";
+    }
+
+    &.ic-header:before {
+        content: "\0000B5";
+    }
+
+    &.ic-save:before {
+        content: "\0000A7";
+    }
+
+    &.ic-copy:before {
+        content: "\0000A8";
+    }
+
+    &.ic-cut:before {
+        content: "\0000AA";
+    }
+
+    &.ic-paste:before {
+        content: "\0000BA";
+    }
+
+    &.ic-flag:before {
+        content: "\0000BF";
+    }
+
+    &.ic-history:before {
+        content: "\0000B1";
+    }
+
+    &.ic-file-add:before {
+        content: "\0000A1";
+    }
+
+    &.ic-enter:before {
+        content: "\0000A4";
+    }
+
+    &.ic-attachment:before {
+        content: "\0000B2";
+    }
+
+    &.ic-store:before {
+        content: "\0000B3";
+    }
+
+    &.ic-pushpin:before {
+        content: "\0000B9";
+    }
+
+    &.ic-industrial:before {
+        content: "\0000AC";
+    }
+
+    &.ic-happy:before {
+        content: "\0000AF";
+    }
+
+    &.ic-average:before {
+        content: "\0000AE";
+    }
+
+    &.ic-sad:before {
+        content: "\0000A6";
+    }
+
+    &.ic-heartbeat:before {
+        content: "\0000A2";
+    }
+
+    &.ic-user-card:before {
+        content: "\0000B7";
+    }
+
+    &.ic-text-left:before {
+        content: "\0000C0";
+    }
+
+    &.ic-text-right:before {
+        content: "\0000C1";
+    }
+
+    &.ic-text-center:before {
+        content: "\0000C2";
+    }
+
+    &.ic-text-justify:before {
+        content: "\0000C3";
+    }
+
+    &.ic-font:before {
+        content: "\0000C4";
+    }
+
+    &.ic-image-square:before {
+        content: "\0000C5";
+    }
+
+    &.ic-image-wide:before {
+        content: "\0000C6";
+    }
+
+    &.ic-aspect-square:before {
+        content: "\0000C7";
+    }
+
+    &.ic-aspect-wide:before {
+        content: "\0000C8";
+    }
+
+    &.ic-play:before {
+        content: "\0000C9";
+    }
+
+    &.ic-stop:before {
+        content: "\0000CA";
+    }
+
+    &.ic-linkedin:before {
+        content: "\0000CC";
+    }
+
+    &.ic-blogger:before {
+        content: "\0000CB";
+    }
+
+    &.ic-dots-horizontal:before {
+        content: "\0000CD";
+    }
+
+    &.ic-filter:before {
+        content: "\0000CE";
+    }
+
+    &.ic-colors:before {
+        content: "\0000CF";
+    }
+
+    &.ic-circles:before {
+        content: "\0000D0";
+    }
+
+    &.ic-duck:before {
+        content: "\0000D1";
+    }
+
+    &.ic-goose:before {
+        content: "\0000D2";
+    }
+
+    &.ic-swan:before {
+        content: "\0000D3";
+    }
+
+    &.ic-diamond:before {
+        content: "\0000D4";
+    }
+
+    &.ic-menu-mobile:before {
+        content: "\0000D5";
+    }
+
+    &.ic-link:before {
+        content: "\0000D6";
+    }
+}

@@ -1,0 +1,14 @@
+// Paleta de cores
+@each $key, $value in $theme-colors {
+    @if ($key != 'wt' and  $key != 'bk') {
+
+        // Cor do texto
+        @include color-pallete($key, $value);
+
+        // Cor do fundo
+        @include background-color-pallete($key, $value);
+        
+        // Cores das bordas
+        @include border-color-pallete($key, $value);
+    }
+}

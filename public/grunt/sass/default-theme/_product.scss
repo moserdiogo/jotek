@@ -1,0 +1,60 @@
+.product {
+
+    transition: all .2s ease-in-out;
+
+    //Galeria
+    .product-gallery {
+        height: 500px;
+        display: flex;
+
+        .product-gallery-thumbs {
+            flex-basis: 100px;
+
+            .swiper-slide {
+                opacity: 0.4;
+                cursor: pointer;
+            }
+
+            .swiper-slide-active {
+                opacity: 1;
+            }
+        }
+    }
+
+    .product-gallery-thumbs {
+
+        .swiper-slide {
+            opacity: 0.4;
+            cursor: pointer;
+        }
+
+        .swiper-slide-active {
+            opacity: 1;
+        }
+    }
+}
+
+// Botão de tamanho
+.wd-size {
+    width: 35px;
+    height: 35px;
+    line-height: 35.5px;
+    cursor: pointer;
+
+    &:hover {
+        color: #fff;
+        background: #96694d;
+        border-color: #96694d;
+    }
+
+    &.active {
+        color: #fff;
+        background: #96694d;
+        border-color: #96694d;
+    }
+}
+
+.image-color {
+    width: 70px;
+    margin-right: $dimen-sm * 2;
+}

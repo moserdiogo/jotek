@@ -1,0 +1,55 @@
+// NoUiSlider
+.noUi-connect {
+    background: $color-primary;
+} 
+
+.noUi-target {
+    height: 15px;
+    //border: 1px solid $color-default;
+    background-color: $color-third;
+    box-shadow: none;
+}
+
+.noUi-horizontal .noUi-handle {
+    border-radius: $full;
+    //border: $slider-handle-border;
+    height: 23px;
+    width: 23px;
+    top: -5px;
+    //@include transition($slider-handle-transition);
+    box-shadow: none;
+	outline: none;
+}
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+    //right: $slider-handle-right;
+    //left: $slider-handle-left;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+    display: none !important;
+}
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+    //@include transition($slider-state-transition);
+}
+
+.noUi-state-drag * {
+    cursor: inherit !important;
+}
+
+.noUi-handle.noUi-active {
+    //@include transform($slider-handle-active-trasform);
+}
+
+.noUi-tooltip {
+    //color: $slider-tooltip-text-color;
+    //font-size: $slider-tooltip-font-size;
+}
+
+// NoUiSlider
+//@each $key, $color in $slider-colors {
+//    @include slider-colored($key, $color);
+//}

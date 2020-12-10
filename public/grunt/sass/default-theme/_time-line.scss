@@ -1,0 +1,87 @@
+.time-line {
+	margin: 40px 0;
+	
+	&:after {
+		content: "";
+        display: table;
+        clear: both;
+	}
+
+	.time-item {
+		position: relative;
+		width: 25%;
+        text-align: center;
+        
+        .content {
+
+            .item-icon {
+                background: $color-third;
+                color: $color-primary;
+                display: block;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                margin: 0 auto 10px auto;
+                position: relative;
+                z-index: 7;
+            }
+
+            .item-text {
+                font-size: 13px;
+                color: $color-primary;
+                font-weight: 500;
+            }
+
+            .item-line {
+                height: 2px;
+                width: 100%;
+                background: $color-secundary-60;
+                position: absolute;
+                left: -50%;
+                top: 20px;
+            }
+        }
+
+        &.active {
+            
+            .item-icon {
+                @include transition($transition-all-window);
+                background: $color-primary;
+                color: $color-white;
+            }
+    
+            .item-text {
+                color: $color-primary;
+            }
+    
+            .item-line {
+                background: $color-primary;
+                @include transition($transition-all-default);
+            }
+        }
+
+        &.completed {
+
+            .item-text {
+                color: $color-primary;
+            }
+    
+            .item-icon {
+                @include transition($transition-all-window);
+                background: $color-primary;
+                color: $color-white;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+            }
+    
+            .item-line {
+                background: $color-primary;
+                @include transition($transition-all-default);
+            }
+        }
+	}
+}
+
+

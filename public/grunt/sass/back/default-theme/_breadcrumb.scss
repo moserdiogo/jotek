@@ -1,0 +1,17 @@
+.breadcrumb {
+    font-size: $font-xs;
+
+    li a {
+        padding-right: $dimen-sm;
+    }
+
+    li:after {
+        content: "/\00a0";
+        padding-right: $dimen-xxs;
+
+    }
+
+    li:last-child:after {
+        content: "";
+    }
+}

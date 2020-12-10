@@ -1,0 +1,89 @@
+.gallery-vertical{
+	height: 500px;
+	display: flex;
+	flex-direction: row;
+ 
+	.thumbs{
+		flex-basis: 100px;
+		.swiper-slide{
+			opacity: 0.4;
+			cursor:pointer;
+		}
+		.swiper-slide-active { 
+			opacity: 1;
+		}
+	}
+}
+
+.swiper-slide{margin: 0;}
+// Sobrescreve a os botoes da biblioteca Swiper
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev { 
+    top: $half;
+    z-index: 1;
+    color: $color-default;
+    @include transform(translateY(-$half));
+	
+	&.outside{right: -7%;}	
+	&.inside{right: 2%;}
+	
+    &::after {
+        font-family: 'AgenciaIcons' !important;
+        content: '\3E';
+		color: $color-white;
+		opacity: .6; 
+    }
+    &:focus {outline: none;}
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-prev {
+    top: $half;
+    z-index: 1;
+    color: $color-default;
+    @include transform(translateY(-$half));
+	
+	&.outside{left: -7%;}
+	&.inside{left: 2%;}
+	
+    &::after { 
+        font-family: 'AgenciaIcons' !important;
+        content: '\3C';
+		color: $color-white;
+		opacity: .6;
+    }
+    &:focus {outline: none;}
+}
+
+// Icones de paginação
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border: 1px solid white;
+    opacity: 1;
+	outline: none;
+    background-color: transparent;    
+    
+    &.swiper-pagination-bullet-active {
+        background-color: white;    
+    }
+}
+
+// Customização para slider de avaliação de clientes
+.swiper-container {
+
+    .swiper-button-prev, .swiper-container-rtl .swiper-button-prev { 
+		&.outside{left: -7%;color: black;}
+		&.inside{left: 2%;color: white;}
+        &::after {
+            font-size: 35px;
+        }
+    }
+
+    .swiper-button-next, .swiper-container-rtl .swiper-button-prev { 
+		&.outside{right: -7%;color: black}	
+		&.inside{right: 2%;color: white;}
+        &::after {
+            font-size: 35px;
+        }
+    }
+    
+}
+

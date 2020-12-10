@@ -1,0 +1,69 @@
+Hospedagem Umbler
+
+User: joteckcWb79G
+Senha: BYvyX1Q97uGHuZuA4M9vBS
+
+Ao fazer deploy ignorar a pasta Grunt, pois o JS e CSS estão gerando direto em seus respectivos diretórios
+
+
+
+
+//------------- Utils ------------//
+
+Phalcon
+// Get the first record in the resultset
+$robot = $robots->getFirst();
+
+// Get the last record
+$robot = $robots->getLast();
+
+
+<div class="tx-ac mb-2 tx-md-lg">
+    <?php echo $this->flashSession->output() ?>
+</div>
+
+<div class="ajax-test">TESTE AJAX</div>
+
+<div class="pd-3 bg-pm tx-sc">Div TEST COLOR</div>
+
+<form id="login-form" method="post" action="<?= DEFAULT_BASE_PATH . 'login/entrar' ?>">
+    <div class="input-group">
+        <span class="input-group-addon"><span class="input-icon input-icon-email"></span><span class="input-text">Email&#42;</span></span>
+        <input type="text" required name="userName" class="form-control input-lg" value="<?= isset($userName) ? $userName : ''  ?>">
+    </div><!-- End .input-group -->
+        <div class="input-group xs-margin">
+        <span class="input-group-addon"><span class="input-icon input-icon-password"></span><span class="input-text">Senha&#42;</span></span>
+        <input type="password" required name="password" class="form-control input-lg" >
+    </div><!-- End .input-group -->
+    <span class="help-block text-right"><a href="#">Esqueceu a senha?</a></span>
+    <button class="btn btn-custom-2">ENTRAR</button>
+    <input type='hidden' name='<?= $this->security->getTokenKey() ?>' value='<?= $this->security->getToken() ?>'/>
+</form>
+
+
+
+
+
+<!-- Estilização - Início -->
+    <!-- <link rel="stylesheet" href="<?= DEFAULT_BASE_CSS . 'all.min.css' ?>">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?= DEFAULT_BASE_CSS . 'adminlte.min.css' ?>">
+    <link rel="stylesheet" href="<?= DEFAULT_BASE_CSS . 'icheck-bootstrap.min.css' ?>"> -->
+    <!-- Estilização - Fim -->
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+
+
+
+    <!-- <div class="form-group">
+        <label>Estado</label>
+        <select class="form-control" id="state" name="state">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cidade</label>
+        <select class="form-control" name="city" disabled="">
+            <option>option 1</option>
+        </select>
+    </div> -->

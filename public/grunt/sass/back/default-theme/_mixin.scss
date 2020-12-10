@@ -1,0 +1,1134 @@
+// Gera Medias para os Breakpoints
+@mixin media-breakpoint-down($breakpoint-value) {
+    @if $breakpoint-value {
+        @media (max-width: $breakpoint-value) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+// Gera Medias para os Breakpoints
+@mixin media-breakpoint-up($breakpoint-value) {
+    @if $breakpoint-value {
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+// Gera todas as colunas
+@mixin grid-columns($columns, $gutter-1x, $breakpoints) {
+
+    // Propriedades para todos breakpoints
+    %grid-column {
+        position: relative;
+        width: $full;
+        min-height: 1px;
+        padding-right: $gutter-1x;
+        padding-left: $gutter-1x;
+    }
+
+    .col {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: $full;
+        @extend %grid-column;
+    }
+
+    .col-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+        @extend %grid-column;
+    }
+
+    @each $breakpoint,
+    $breakpoint-value in $breakpoints {
+        @for $i from 1 through $columns {
+
+            .col-#{$i} {
+                $percent: $full / $columns * $i;
+                flex: 0 0 $percent;
+                max-width: $percent;
+                @extend %grid-column;
+            }
+
+            .col-#{$breakpoint}-#{$i} {
+                @extend %grid-column;
+            }
+        }
+
+        .col-#{$breakpoint},
+        .col-#{$breakpoint}-auto {
+            @extend %grid-column;
+        }
+
+        // Gera colunas para cada Breakpoint
+        @include media-breakpoint-up($breakpoint-value) {
+
+            .col-#{$breakpoint} {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: $full;
+            }
+
+            .col-#{$breakpoint}-auto {
+                flex: 0 0 auto;
+                width: auto;
+                max-width: none;
+            }
+
+            @for $i from 1 through $columns {
+                .col-#{$breakpoint}-#{$i} {
+                    $percent: $full / $columns * $i;
+                    flex: 0 0 $percent;
+                    max-width: $percent;
+                }
+            }
+        }
+    }
+}
+
+// Linhas com espaçamento
+@mixin row-sp($key, $value) {
+    .row-sp-#{$key} {
+        > * + * {
+            margin-top: $value;
+        }
+    }
+}
+
+// Reverte a ordem das colunas dentro da row
+@mixin col-rev($breakpoint-key) {
+
+    .col-rev {
+        flex-direction: column-reverse;
+    }
+
+    @each $breakpoint,
+    $breakpoint-value in $breakpoints {
+        @include media-breakpoint-down($breakpoint-value) {
+            .col-rev-#{$breakpoint-key} {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+}
+
+
+// Espaçamento entre colunas do grid
+@mixin gutter($key, $value) {
+
+    // 
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .gt-#{$key} {
+                margin-right: - $value;
+                margin-left: - $value; 
+            }
+
+            .gt-#{$key}>.col,
+            .gt-#{$key}>[class*="col-"] {
+                padding-right: $value;
+                padding-left: $value;
+            }
+
+            .gt-#{$key}-#{$break-point-key} {
+                margin-right: - $value !important;
+                margin-left: - $value !important; 
+            }
+            
+            .gt-#{$key}-#{$break-point-key}>.col,
+            .gt-#{$key}-#{$break-point-key}>[class*="col-"] {
+                padding-right: $value !important;
+                padding-left: $value !important;
+            }
+
+            // Sem gutters
+            .no-gt {
+                margin-right: 0;
+                margin-left: 0;
+            }
+            
+            .no-gt>.col,
+            .no-gt>[class*="col-"] {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            
+            .no-gt-#{$break-point-key} {
+                margin-right: 0;
+                margin-left: 0;
+            }
+            
+            .no-gt-#{$break-point-key}>.col,
+            .no-gt-#{$break-point-key}>[class*="col-"] {
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+// Gera os containers
+@mixin grid-containers($container-widths, $breakpoints) {
+
+    @each $breakpoint,
+    $breakpoint-value in $breakpoints {
+        @include media-breakpoint-up($breakpoint-value) {
+            .ct {
+                max-width: map-get($container-widths, $breakpoint);
+            }
+
+           
+        }
+    }
+}
+
+// Gera classes para o padding do container ficar igual ao espaçamento entre colunas
+@mixin grid-containers-gutters($key, $value) {
+    .ct-gt-#{$key} {
+        padding-left: ($value * 2);
+        padding-right: ($value * 2);
+    }
+
+    @each $breakpoint,
+    $breakpoint-value in $breakpoints {
+        @include media-breakpoint-up($breakpoint-value) {
+            .ct-gt-#{$key}{
+                padding-left: ($value * 2);
+                padding-right: ($value * 2);
+            }
+
+            .ct-no-gt-#{$key}{
+                padding-left: 0;
+                padding-right: 0;
+            }           
+        }
+    }
+}
+
+// Gera as classes de alinhamento horizontal das colunas
+@mixin grid-align-horizontal($key, $value) {
+    .jf-ct-#{$key} {
+        justify-content: $value;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .jf-ct-#{$key}-#{$break-point-key} {
+                justify-content: $value;
+            }
+        }
+    }
+}
+
+// Gera as classes de alinhamento vertical das colunas
+@mixin grid-align-vertical($key, $value) {
+    .al-it-#{$key} {
+        align-items: $value;
+    }
+}
+
+// Cores dos textos
+@mixin text-color($key, $value) {
+    .tx-#{$key} {
+        color: $value;
+    }
+}
+
+// Cores dos textos ao passar o mouse
+@mixin text-color-hover($key, $value) {
+    .tx-#{$key}-hv {
+        &:hover {
+            color: $value;
+        }
+    }
+
+    @each $var in list {
+        
+    }
+}
+
+// Cores de fundo
+@mixin background-color($key, $value) {
+    .bg-#{$key} {
+        background-color: $value;
+    }
+}
+
+// Cor do fundo ao passar o mouse
+@mixin background-color-hover($key, $value) {
+    .bg-#{$key}-hv {
+        &:hover {
+            background-color: $value;
+        }
+    }
+}
+
+// Tamanho dos textos
+@mixin text-size($key, $value) {
+    .tx-#{$key} {
+        font-size: $value;
+    }
+
+    .tx-#{$key} {
+        font-size: $value;
+    }
+
+    .tx-b {
+        font-weight: bold !important;
+    }
+
+    .no-tx-b {
+        font-weight: normal !important;
+    }
+
+    // Tamanho dos textos por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .tx-#{$key}-#{$break-point-key} {
+                font-size: $value !important;
+            }
+
+            .tx-b-#{$break-point-key} {
+                font-weight: bold !important;
+            }
+
+            .no-tx-b-#{$break-point-key} {
+                font-weight: normal !important;
+            }
+        }
+    }
+}
+
+// Disposição dos textos
+@mixin text-disposition($key, $value){
+    
+    // Disposição dos textos por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .tx-#{$key}-#{$break-point-key} {
+                text-align: $value !important;
+            }
+        }
+    }
+}
+
+// Disposição dos textos
+@mixin text-resolution-disposition($key, $value){
+
+    // Disposição dos textos
+    .tx-#{$key} {
+        text-align: $value !important;
+    }
+    
+    // Disposição dos textos por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .tx-#{$key}-#{$break-point-key} {
+                text-align: $value !important;
+            }
+        }
+    }
+}
+
+// Tamanho dos cabeçalhos
+@mixin heading-size($key, $value) {
+    .h#{$key} {
+        font-size: $value;
+    }
+
+    // Tamanho dos cabeçalhos por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .h-#{$key}-#{$break-point-key} {
+                font-size: $value ;
+            }
+        }
+    }
+}
+
+// Preenchimento no topo
+@mixin padding($key, $value) {
+    .pd-#{$key} {
+        padding: $value;
+    }
+
+    // Preenchimento por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .pd-#{$key}-#{$break-point-key} {
+                padding: $value !important;
+            }
+        }
+    }
+}
+
+// Preenchimento no topo
+@mixin padding-top($key, $value) {
+    .pt-#{$key} {
+        padding-top: $value;
+    }
+
+    // Preenchimento por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .pt-#{$key}-#{$break-point-key} {
+                padding-top: $value !important;
+            }
+        }
+    }
+}
+
+// Preenchimento a direita
+@mixin padding-right($key, $value) {
+    .pr-#{$key} {
+        padding-right: $value;
+    }
+
+    // Preenchimento por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .pr-#{$key}-#{$break-point-key} {
+                padding-right: $value !important;
+            }
+        }
+    }
+}
+
+// Preenchimento a baixo
+@mixin padding-bottom($key, $value) {
+    .pb-#{$key} {
+        padding-bottom: $value;
+    }
+
+    // Preenchimento por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .pb-#{$key}-#{$break-point-key} {
+                padding-bottom: $value !important;
+            }
+        }
+    }
+}
+
+// Preenchimento a esquerda
+@mixin padding-left($key, $value) {
+    .pl-#{$key} {
+        padding-left: $value;
+    }
+
+    // Preenchimento por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .pl-#{$key}-#{$break-point-key} {
+                padding-left: $value !important;
+            }
+        }
+    }
+}
+
+// Margem 
+@mixin margin($key, $value) {
+    .mg-#{$key} {
+        margin: $value;
+    }
+
+    // Margem por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .mg-#{$key}-#{$break-point-key} {
+                margin: $value !important;
+            }
+        }
+    }
+}
+
+// Margem no topo
+@mixin margin-top($key, $value) {
+    .mt-#{$key} {
+        margin-top: $value;
+    }
+
+    // Margem por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .mt-#{$key}-#{$break-point-key} {
+                margin-top: $value !important;
+            }
+        }
+    }
+}
+
+// Margem a direita
+@mixin margin-right($key, $value) {
+    .mr-#{$key} {
+        margin-right: $value;
+    }
+
+    // Margem por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .mr-#{$key}-#{$break-point-key} {
+                margin-right: $value !important;
+            }
+        }
+    }
+}
+
+// Margem a baixo
+@mixin margin-bottom($key, $value) {
+    .mb-#{$key} {
+        margin-bottom: $value;
+    }
+
+    // Margem por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .mb-#{$key}-#{$break-point-key} {
+                margin-bottom: $value !important;
+            }
+        }
+    }
+}
+
+// Margem a esquerda
+@mixin margin-left($key, $value) {
+    .ml-#{$key} {
+        margin-left: $value;
+    }
+
+
+    // Margem por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .ml-#{$key}-#{$break-point-key} {
+                margin-left: $value !important;
+            }
+        }
+    }
+}
+
+// Cantos aredondados
+@mixin border-radius($key, $value) {
+    
+    // Arredondados para todos lados
+    .bd-rd-#{$key} {
+        -webkit-border-radius: $value;
+        -moz-border-radius: $value;
+        border-radius: $value;
+    }
+
+    // Bordas arredondadas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-rd-#{$key}-#{$break-point-key} {
+                -webkit-border-radius: $value;
+                -moz-border-radius: $value;
+                border-radius: $value;
+            }
+
+            .no-bd-rd-#{$break-point-key} {
+                -webkit-border-radius: unset;
+                -moz-border-radius: unset;
+                border-radius: unset;
+            }
+        }
+    }
+
+    // Arredondado
+    .bd-t-r-rd-#{$key} {
+        border-top-right-radius: $value;
+    }
+
+    // Borda arredondada por resolução
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-t-r-rd-#{$key}-#{$break-point-key} {
+                border-top-right-radius: $value;
+            }
+
+            .no-bd-t-r-rd-#{$break-point-key} {
+                border-top-right-radius: unset;
+            }
+        }
+    }
+
+    .bd-t-l-rd-#{$key} {
+        border-top-left-radius: $value;
+    }
+
+    // Borda arredondada por resolução
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-t-l-rd-#{$key}-#{$break-point-key} {
+                border-top-left-radius: $value;
+            }
+
+            .no-bd-t-l-rd-#{$break-point-key} {
+                border-top-left-radius: unset;
+            }
+        }
+    }    
+
+    .bd-b-r-rd-#{$key} {
+        border-bottom-right-radius: $value;
+    }
+
+    // Borda arredondada por resolução
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-b-r-rd-#{$key}-#{$break-point-key} {
+                border-bottom-right-radius: $value;
+            }
+
+            .no-bd-t-l-rd-#{$break-point-key} {
+                border-bottom-right-radius: unset;
+            }
+        }
+    }
+
+    .bd-b-l-rd-#{$key} {
+        border-bottom-left-radius: $value;
+    }
+
+    // Borda arredondada por resolução
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-b-l-rd-#{$key}-#{$break-point-key} {
+                border-bottom-left-radius: $value;
+            }
+
+            .no-bd-b-l-rd-#{$break-point-key} {
+                border-bottom-left-radius: unset;
+            }
+        }
+    }
+
+}
+
+// Tamanho das bordas
+@mixin border-width($key, $value) {
+    .bd-wd-#{$key} {
+        border-width: $value;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-wd-#{$key}-#{$break-point-key} {
+                border-width: $value;
+            }
+        }
+    }
+
+    
+}
+
+// Cores das bordas
+@mixin border-color($key, $value) {
+    .bd-cl-#{$key} {
+        border-color: $value;
+    }
+
+    .bd-cl-#{$key}-hv {
+        &:hover {
+            border-color: $value;
+        }
+    }    
+
+}
+
+// Estilo das bordas
+@mixin border-style($key, $value) {
+    .bd-st-#{$key} {
+        border-style: $value;
+    }
+
+    .no-bd {
+        border-style: none;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-st-#{$key}-#{$break-point-key} {
+                border-style: $value;
+            }
+
+            .no-bd-#{$break-point-key} {
+                border-style: none;
+            }
+        }
+    }
+}
+
+// Estilo das bordas do topo
+@mixin border-top-style($key, $value) {
+    .bd-t-st-#{$key} {
+        //border-top-style: $value;
+        -webkit-border-top-style: $value;
+        -moz-border-top-style: $value;
+        border-top-style: $value;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-t-st-#{$key}-#{$break-point-key} {
+                -webkit-border-top-style: $value;
+                -moz-border-top-style: $value;
+                border-top-style: $value;
+            }
+
+            .no-bd-t-#{$break-point-key} {
+                border-top-style: none;
+            }
+        }
+    }
+}
+
+// Estilo das bordas a direita
+@mixin border-right-style($key, $value) {
+    .bd-r-st-#{$key} {
+        -webkit-border-right-style: $value;
+        -moz-border-right-style: $value;
+        border-right-style: $value;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-r-st-#{$key}-#{$break-point-key} {
+                -webkit-border-right-style: $value;
+                -moz-border-right-style: $value;
+                border-right-style: $value;
+            }
+
+            .no-bd-r-#{$break-point-key} {
+                border-right-style: none;
+            }
+        }
+    }
+}
+
+// Estilo das bordas a baixo
+@mixin border-bottom-style($key, $value) {
+    .bd-b-st-#{$key} {
+        border-bottom-style: $value;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-b-st-#{$key}-#{$break-point-key} {
+                -webkit-border-bottom-style: $value;
+                -moz-border-bottom-style: $value;
+                border-bottom-style: $value;
+            }
+
+            .no-bd-b-#{$break-point-key} {
+                border-bottom-style: none;
+            }
+        }
+    }
+}
+
+// Estilo das bordas a esquerda
+@mixin border-left-style($key, $value) {
+    .bd-l-st-#{$key} {
+        border-left-style: $value;
+    }
+
+    // Tamanho das bordas por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .bd-l-st-#{$key}-#{$break-point-key} {
+                -webkit-border-left-style: $value;
+                -moz-border-left-style: $value;
+                border-left-style: $value;
+            }
+
+            .no-bd-l-#{$break-point-key} {
+                border-right-style: none;
+            }
+        }
+    }
+}
+
+// Espaçamento entre letras
+@mixin letter-spacing($key, $value) {
+    .ls-#{$key} {
+        letter-spacing: $value;
+    }
+
+    .no-ls {
+        letter-spacing: normal;
+    }
+
+    // Espaçamento das letras por resolução
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .ls-#{$key}-#{$break-point-key} {
+                letter-spacing: $value;
+            }
+
+            .no-ls-#{$break-point-key} {
+                letter-spacing: normal;
+            }
+
+        }
+    }
+}
+
+// Paleta de cores
+@mixin color-pallete($prefix, $color-hex, $color-light: #ffffff, $color-dark: #000000) {
+
+    // Cria a paleta de cores claras
+    @each $key, $value in $color-light-scale {
+        .tx-#{$prefix}-#{$key} {
+            color: mix($color-hex, $color-light, $value);
+
+          
+                .tx-#{$prefix}-#{$key}-hv {
+
+                    &:hover {
+                        color: mix($color-hex, $color-light, $value);
+                    }
+                    
+                }
+            
+        }
+
+        
+    }
+
+    // Cria a paleta de cores escuras
+    @each $key, $value in $color-dark-scale {
+        .tx-#{$prefix}-#{$key} {
+            color: mix($color-hex, $color-dark, $value);
+
+                .tx-#{$prefix}-#{$key}-hv {
+
+                    &:hover {
+                        color: mix($color-hex, $color-dark, $value);
+                    }
+                    
+                }
+            
+        }
+    }
+}
+
+// Paleta de cores para fundo
+@mixin background-color-pallete($prefix, $color-hex, $color-light: #ffffff, $color-dark: #000000) {
+
+    // Cria a paleta de cores claras para o background
+    @each $key, $value in $color-light-scale {
+        .bg-#{$prefix}-#{$key} {
+            background-color: mix($color-hex, $color-light, $value);
+        }
+    }
+
+    // Cria a paleta de cores escuras para o background
+    @each $key, $value in $color-dark-scale {
+        .bg-#{$prefix}-#{$key} {
+            background-color: mix($color-hex, $color-dark, $value);
+        }
+    }
+}
+
+// Paleta de cores das bordas
+@mixin border-color-pallete($prefix, $color-hex, $color-light: #ffffff, $color-dark: #000000) {
+
+    // Cria a paleta de cores claras para as bordas
+    @each $key, $value in $color-light-scale {
+        .bd-cl-#{$prefix}-#{$key} {
+            border-color: mix($color-hex, $color-light, $value);
+        }
+    }
+
+    // Cria a paleta de cores escuras para as bordas
+    @each $key, $value in $color-dark-scale {
+        .bd-cl-#{$prefix}-#{$key} {
+            border-color: mix($color-hex, $color-dark, $value);
+        }
+    }
+}
+
+// Espaçamento entre linhas
+@mixin line-height($key, $value) {
+    .lh-#{$key} {
+        line-height: $value;
+    }
+}
+
+// Estilização do tamanho do texto dos placeholders
+@mixin placeholder-font-size-webkits {
+    // ::-webkit-input-placeholder,
+    // :-moz-placeholder,
+    // ::-moz-placeholder,
+    // :-ms-input-placeholder {
+    //     font-size: $value;
+    // }
+}
+
+// Tamanhos de fonte para os placeholders dos formulários
+@mixin placeholder-font-size($key, $value) {
+    .ph-tx-#{$key} {
+        @include placeholder-font-size-webkits;
+    }
+
+    // Tamanho dos textos por resoluções
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+            .ph-tx-#{$key}-#{$break-point-key} {
+                @include placeholder-font-size-webkits;
+            }
+        }
+    }    
+
+}
+
+// Cores do placeholder
+@mixin placeholder-color($prefix, $color-hex, $color-light: #ffffff, $color-dark: #000000) {
+
+    // Paleta de cores claras do placeholder
+    @each $key, $value in $color-light-scale {
+        .ph-cl-#{$prefix}-#{$key} {
+            color: mix($color-hex, $color-light, $value);
+        }
+    }
+
+    // Paleta de cores escuras do placeholder
+    @each $key, $value in $color-dark-scale {
+        .ph-cl-#{$prefix}-#{$key} {
+            color: mix($color-hex, $color-dark, $value);
+        }
+    }
+}
+
+// Cores de fundo das tabelas
+@mixin table-color($prefix, $color-hex, $color-light: #ffffff, $color-dark: #000000) {
+
+    // Paleta de cores claras das tabelas
+    @each $key, $value in $color-light-scale {
+
+        .table-bg-#{$prefix}-#{$key}-even {
+            tr:nth-child(even) {
+                background: mix($color-hex, $color-light, $value);
+            }
+        }
+
+        .table-bg-#{$prefix}-#{$key}-odd {
+            tr:nth-child(odd) {
+                background: mix($color-hex, $color-light, $value);
+            }
+        }
+    }
+
+    // Paleta de cores escuras das tabelas
+    @each $key, $value in $color-dark-scale {
+
+        .table-bg-#{$prefix}-#{$key}-even {
+            tr:nth-child(even) {
+                background: mix($color-hex, $color-dark, $value);
+            }
+        }
+
+        .table-bg-#{$prefix}-#{$key}-odd {
+            tr:nth-child(odd) {
+                background: mix($color-hex, $color-dark, $value);
+            }
+        }
+    }
+
+    .table-bg-#{$prefix}-even {
+        tr:nth-child(even) {
+            background: $color-hex;
+        }
+    }
+
+    .table-bg-#{$prefix}-odd {
+        tr:nth-child(odd) {
+            background: $color-hex;
+        }
+    }
+}
+
+// Preenchimento das tabelas
+@mixin padding-table($key, $value) {
+    
+    .table-td-pd-x-#{$key} {
+        td {
+            padding-left: $value;
+            padding-right: $value;
+        }
+    }
+    
+    .table-td-pd-y-#{$key} {
+        td {
+            padding-top: $value;
+            padding-bottom: $value;
+        }
+    }
+}
+
+// Invisível
+@mixin hidden($key, $breakpoint-value) {
+
+    @include media-breakpoint-up($breakpoint-value) {
+
+        .h-#{$key} {
+            display: none !important;
+        }
+    }
+}
+
+// Visível
+@mixin visible($key, $breakpoint-value) {
+     
+    @include media-breakpoint-down($breakpoint-value) {
+
+        .v-#{$key} {
+            display: none !important;
+        }
+    }
+}
+
+// Imagem responsiva
+@mixin responsive-image($key, $breakpoint-value) {
+     
+    @include media-breakpoint-down($breakpoint-value) {
+
+        .img-rp-#{$key} {
+            height: auto;
+            width: $full;
+        }
+    }
+}
+
+// Sombras
+@mixin box-shadow($key, $box-shadow-value) {
+
+    .bs-#{$key} {
+        -moz-box-shadow: $box-shadow-value;
+        -webkit-box-shadow: $box-shadow-value;
+        box-shadow: $box-shadow-value;
+    }
+}
+
+// Opacidades
+@mixin opacity($key, $value) {
+
+    .op-#{$key} {
+        opacity: $value !important;
+    }
+
+    @each $break-point-key, $break-point-value in $breakpoints {
+        @include media-breakpoint-down($break-point-value) {
+
+            .op-#{$key}-#{$break-point-key} {
+                opacity: $value !important;
+            }
+        }
+    }
+}
+
+ // Modais coloridos
+ @mixin modal-colored($key, $color) {
+    .md-#{$key} {
+        .md-hd {
+            background-color: $color;
+            color: $modal-colored-text-color; 
+            .md-cl {
+                color: $modal-colored-text-color;
+
+            }
+        }
+        border: none;
+    }
+}
+
+// Alerta colorido dos Modais
+@mixin modal-alert-colored($key, $border-top-color) {
+    .md-#{$key} {
+        .md-pn {
+            .md-close {
+                color: $color-white;
+            }
+            .md-hd {
+                border-top: $dimen-md solid $border-top-color;
+                .md-hd-i {
+                    //color: $color-accent;
+                    @if ($key == 'pm') {
+                        color: $color-accent;
+                    }@else{
+                        color: $border-top-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Slider coloridos
+@mixin slider-colored($key, $color) {
+    .noUi-#{$key} {
+        .noUi-connect {
+            background-color: $color;
+        }
+
+        .noUi-connects {
+            background-color: lighten($color, 35%);
+        }
+
+        .noUi-handle {
+            border: 1px solid $color;
+        }
+
+        .noUi-tooltip {
+            color: $slider-colored-tooltip-text-color;
+            border: 1px solid $color;
+            background-color: $color;
+        }
+    }
+}

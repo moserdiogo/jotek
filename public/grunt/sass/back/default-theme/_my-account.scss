@@ -1,0 +1,25 @@
+.my-account-tab {
+
+    // Altera a cor quando a tab está ativa
+    .my-account-nav {
+        
+        &.active {
+            color: $color-primary;
+        }
+    }
+
+    // Elimina a borda do último elemento
+    li {
+        &:last-child {
+
+            .my-account-nav {
+                border: none;
+            }
+        } 
+    }
+    
+    .bank-icon {
+        font-size: 88px;
+    } 
+
+}

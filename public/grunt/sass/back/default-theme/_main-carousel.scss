@@ -1,0 +1,23 @@
+.main-carousel {
+
+    @media (min-width: 1200px) and (max-width: 1400px) {
+        padding: 0 5%;
+    }
+
+    @media (min-width: 1400px) and (max-width: 1600px) {
+        padding: 0 6%;
+    }
+
+    @media (min-width: 1600px) and (max-width: 1800px) {
+        padding: 0 10%;
+    }
+
+    @media (min-width: 1800px) and (max-width: 1900px) {
+        padding: 0 12%;
+    }
+
+    @media (min-width: 1900px) {
+        padding: 0 15%;
+    }
+
+}

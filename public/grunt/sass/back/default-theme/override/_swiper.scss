@@ -1,0 +1,145 @@
+// Sobrescreve a os botoes da biblioteca Swiper
+.swiper-button-next.main-carousel-btn {
+    transition: all, 0.5s; 
+    top: 53%;
+    right: 4%;
+    z-index: 1;
+    color: $color-primary;
+    opacity: 0.5;
+    @include transform(translateY(-$half));
+
+    &:hover {
+        opacity: 1;
+        color: $color-white;
+        background-color: $color-primary;
+    }
+
+    &::after {
+        font-family: 'AgenciaIcons' !important;
+        content: '\e91b';
+        font-size: 27px;
+        font-weight: bolder;
+        -webkit-transform: scaleX(1.4);
+        transform: scaleX(1.4);                
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+}
+.swiper-button-prev.main-carousel-btn {
+    transition: all, 0.5s; 
+    top: 53%;
+    left: 4%;
+    z-index: 1;
+    color: $color-primary;
+    opacity: 0.5;    
+    @include transform(translateY(-$half));
+
+    &:hover {
+        opacity: 1;
+        color: $color-white;
+        background-color: $color-primary;
+    }
+
+    &::after {
+        font-family: 'AgenciaIcons' !important;
+        content: '\e91a';
+        font-size: 27px;
+        font-weight: bolder;
+        -webkit-transform: scaleX(1.4);
+        transform: scaleX(1.4);               
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+// Icones de paginação
+.swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    opacity: 1;
+    background-color: transparent;    
+    
+    &.swiper-pagination-bullet-active {
+        background-color: white;    
+    }
+}
+
+// Customização para slider de avaliação de clientes
+.swiper-container.user-rating {
+
+    .swiper-button-prev, .swiper-container-rtl .swiper-button-prev { 
+        left: 0%;
+        color: $color-default;
+        border-style: solid;
+        border-width: thin;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 100%;
+
+        &::after {
+            font-size: 20px;          
+        }
+    }
+
+    .swiper-button-next, .swiper-container-rtl .swiper-button-prev { 
+        right: 0%;
+        color: $color-default;
+        border-style: solid;
+        border-width: thin;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 100%;
+
+        &::after {
+            font-size: 20px;
+        }
+    }
+    
+}
+
+
+// Customização para swipper dos destaques de categoria
+.swiper-container.blog {
+
+    .swiper-button-prev { 
+        left: 0%;
+        color: $color-default;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        &::after {
+            font-size: 20px;          
+        }
+    }
+
+    .swiper-button-next { 
+        right: 0%;
+        color: $color-default;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        &::after {
+            font-size: 20px;
+        }
+    }
+    
+    .swiper-button-disabled {
+        opacity: 0;
+    }
+    
+}
+
+// Tamanho dos slides do carousel principal para mobile
+.slide-rp {
+    @media screen and (min-device-width: 0px) and (max-device-width: 992px) {
+        min-height: 200px;
+        // object-fit: cover;
+        // object-position: 0% 50%;
+    }
+}

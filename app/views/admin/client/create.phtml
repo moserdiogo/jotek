@@ -1,0 +1,48 @@
+
+
+<div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <?php $this->partial('components/adm-nav'); ?>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <?php $this->partial('components/adm-side-nav'); ?>
+    <!-- /.Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                
+                <!-- Main row -->
+                <div class="row pt-3">
+                    <!-- Left col -->
+                    <div class="col-md-3"></div>
+
+                    <div class="col-md-6">
+                        <!-- Form -->
+                        <?php $this->partial('components/forms/client-create'); ?>
+                        <!-- /.Form -->
+                    </div>
+
+                    <div class="col-md-3"></div>
+                    <!-- /.col -->        
+                </div>
+                <!-- /.row -->
+            </div>
+            <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Footer -->
+    <?php $this->partial('components/footer'); ?>
+    <!-- /.Footer -->
+</div>
+<!-- ./wrapper -->

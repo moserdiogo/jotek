@@ -1,0 +1,110 @@
+.dropdown {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+
+    // Menu (Por padrão, abre para esquerda)
+    .dropdown-menu {
+        right: -100%;
+        z-index: 2;
+        top: 100%;
+        transform-origin: right top;
+        position: absolute;
+        transition: all 0.2s ease-in-out;
+        transform: scale(0);
+    }
+
+    &.dropdown-arrow {
+        &:before {
+            content: "";
+            top: 100%;
+            left: 50%;
+            position: absolute;
+            margin-left: - (($dimen-2x * 29) / 100) / 2;
+            height: $dimen-1x + 10;
+            width: $dimen-1x + 10;
+            background: $color-white;
+            //z-index: 100;
+            transition: all 0.2s ease-in-out;
+            margin-top: $dimen-2x; 
+            @include transform(scale(0) rotate(45deg) translate(-$half, 0));             
+        }
+    }
+
+    // Menu ativo
+    &.active {
+
+        &.dropdown-arrow {  
+            &:before {
+                margin-top: $dimen-2x / 2; // Margem do dropdown com seta (tamanho da seta dividido por 2)
+                @include transform(scale(1) rotate(45deg) translate(-$half, 0));   
+            }
+                      
+            
+
+            
+            .dropdown-menu {
+                margin-top: $dimen-2x / 2; // Margem do dropdown com seta (tamanho da seta dividido por 2)
+            }
+            
+        }
+
+        .dropdown-menu {
+            transform: scale(1);
+        }
+
+        &.dropdown-center {
+            .dropdown-menu {
+                left: $half;
+                transform: scale(1) translate(-$half, 0);
+            }
+        }
+
+        // Fundo do dropdown quando está ativo
+        &:after {
+            content: "";
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.5;
+            background: $color-black;
+        }
+
+        &.mobile-dropdown:after {
+            opacity: 1;
+            background-color: $color-primary;
+        }
+
+    }
+
+    // Menu a esquerda
+    &.dropdown-left {
+        .dropdown-menu {
+            left: -100%;
+            right: unset;
+            transform-origin: left top;
+            position: absolute;
+        }
+    }
+
+    // Menu centralizado
+    &.dropdown-center {
+        .dropdown-menu {
+            right: unset;
+            left: $half;
+            transform-origin: left top;
+            transform: scale(0) translate(-$half, 0);
+        }
+    }
+
+    //Menu dropdown mobile
+    &.dropdown-menu-mobile {
+        @media screen and (max-width: 992px) {
+            left: -200%;
+        }
+    }
+
+}

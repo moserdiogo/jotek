@@ -1,0 +1,56 @@
+.alphabetical-list-store {
+
+    .tags {
+        display: inline-flex;
+        
+        img {
+            margin-right: 5px;
+        }
+    }
+
+    .box {
+        height:40px;
+        width:40px;
+        border-radius:100%
+    }
+}
+
+.alphabetical-nav {
+
+    .box {
+        height:40px;
+        width:40px;
+        border-radius:100%
+    }
+}
+
+// Botão de voltar ao topo da lista de lojas em ordem alfabética
+.back-to-top-button {
+    z-index: 2; 
+    bottom: 5%; 
+    position: fixed; 
+    right: 5%; 
+    -moz-box-shadow: 0 7px 14px rgba(0,0,0,.15),0 5px 5px rgba(0,0,0,.1); 
+    -webkit-box-shadow: 0 7px 14px rgba(0,0,0,.15), 0 5px 5px rgba(0,0,0,.1); 
+    box-shadow: 0 7px 14px rgba(0,0,0,.15), 0 5px 5px rgba(0,0,0,.1); 
+    cursor: pointer;
+
+    &.show-button {
+        visibility: visible;
+        opacity: 1;
+        -moz-transition: opacity 0.5s, visibility 0.5s linear;
+        -o-transition: opacity 0.5s, visibility 0.5s linear;
+        -webkit-transition: opacity 0.5s, visibility 0.5s linear;
+        transition: opacity 0.5s, visibility 0.5s linear;
+    }
+
+    &.hide-button {
+        visibility: hidden;
+        opacity: 0;
+        -moz-transition: opacity 0.5s, visibility 0.5s linear;
+        -o-transition: opacity 0.5s, visibility 0.5s linear;
+        -webkit-transition: opacity 0.5s, visibility 0.5s linear;
+        transition: opacity 0.5s, visibility 0.5s linear;
+    }
+
+}

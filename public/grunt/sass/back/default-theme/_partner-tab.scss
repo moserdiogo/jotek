@@ -1,0 +1,43 @@
+.about-partner-tab {
+
+    // Altera a cor quando a tab está ativa
+    .partner-nav {
+        
+        &.active {
+            background-color: $color-default;
+            color: $color-white;
+        }
+    }
+
+    // Elimina a borda do último elemento
+    li {
+        &:last-child {
+
+            .partner-nav {
+                border: none;
+            }
+        } 
+    }
+
+    .partner-hd {
+        max-height: 0;
+        opacity: 0;
+        -webkit-transition: max-height 0.2s, opacity 0.2s;
+        transition: max-height 0.2s, opacity 0.2s;
+    }
+
+    .partner-visible {
+        max-height: 1000px;
+        overflow: hidden;
+        opacity: 1;
+        -webkit-transition: max-height 1s, opacity 0.2s;
+        transition: max-height 1s, opacity 0.2s;
+    }
+
+    // .partner-nav-mobile {
+    //     background-color: $color-white;
+    //     color: #6a6a6a;
+    // }
+
+
+}

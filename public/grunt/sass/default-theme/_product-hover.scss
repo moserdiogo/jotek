@@ -1,0 +1,24 @@
+.product-hover{
+	cursor: pointer;
+	img.roll{
+		transition: fadeIn linear 0.5s;
+		-moz-animation: fadeIn linear 0.5s;
+		-webkit-animation: fadeIn linear 0.5s;
+		animation: fadeIn linear 0.5s;
+	}
+	img.roll-over, &-buttons{
+		display: none;
+	}
+	&:hover{
+		img.roll{
+			display: none;
+		}
+		img.roll-over, .product-hover-buttons{
+			display: block;
+			transition: fadeIn linear 0.8s;
+			-moz-animation: fadeIn linear 0.8s;
+			-webkit-animation: fadeIn linear 0.8s;
+			animation: fadeIn linear 0.8s;
+		}
+	}
+}

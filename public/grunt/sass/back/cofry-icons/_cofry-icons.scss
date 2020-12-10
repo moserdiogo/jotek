@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'CofryIcons';
+  src:  url('font/CofryIcons/fonts/CofryIcons.eot?dvxinm');
+  src:  url('font/CofryIcons/fonts/CofryIcons.eot?dvxinm#iefix') format('embedded-opentype'),
+    url('font/CofryIcons/fonts/CofryIcons.ttf?dvxinm') format('truetype'),
+    url('font/CofryIcons/fonts/CofryIcons.woff?dvxinm') format('woff'),
+    url('font/CofryIcons/fonts/CofryIcons.svg?dvxinm#CofryIcons') format('svg');
+  font-weight: normal;
+  font-style: normal; 
+  font-display: block;
+}
+
+[class^="ic-"], [class*=" ic-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'CofryIcons' !important;
+  speak: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-arrow-down-c:before {
+  content: "\e900";
+}
+.ic-arrow-left-c:before {
+  content: "\e901";
+}
+.ic-arrow-right-c:before {
+  content: "\e902";
+}
+.ic-arrow-up:before {
+  content: "\e903";
+}
+.ic-bell:before {
+  content: "\e904";
+}
+.ic-chevron-down:before {
+  content: "\e905";
+}
+.ic-chrome:before {
+  content: "\e906";
+}
+.ic-circle:before {
+  content: "\e907";
+}
+.ic-circle-f:before {
+  content: "\e908";
+}
+.ic-close:before {
+  content: "\e909";
+}
+.ic-cog-circle:before {
+  content: "\e90a";
+}
+.ic-doc-circle:before {
+  content: "\e90b";
+}
+.ic-dollar-sign-circle:before {
+  content: "\e90c";
+}
+.ic-dots-circle:before {
+  content: "\e90d";
+}
+.ic-eye:before {
+  content: "\e90e";
+}
+.ic-facebook-circle:before {
+  content: "\e90f";
+}
+.ic-face-sad:before {
+  content: "\e910";
+}
+.ic-heart:before {
+  content: "\e911";
+}
+.ic-heart-f:before {
+  content: "\e912";
+}
+.ic-instagram-circle:before {
+  content: "\e913";
+}
+.ic-link:before {
+  content: "\e914";
+}
+.ic-lock:before {
+  content: "\e915";
+}
+.ic-lottery:before {
+  content: "\e916";
+}
+.ic-magnifier:before {
+  content: "\e917";
+}
+.ic-mail-circle:before {
+  content: "\e918";
+}
+.ic-manual:before {
+  content: "\e919";
+}
+.ic-manual-f:before {
+  content: "\e91a";
+}
+.ic-menu-left:before {
+  content: "\e91b";
+}
+.ic-menu-mobile:before {
+  content: "\e91c";
+}
+.ic-outcome-circle:before {
+  content: "\e91d";
+}
+.ic-phone-circle:before {
+  content: "\e91e";
+}
+.ic-picture:before {
+  content: "\e91f";
+}
+.ic-question-circle:before {
+  content: "\e920";
+}
+.ic-reverse-pyramid:before {
+  content: "\e921";
+}
+.ic-slider:before {
+  content: "\e922";
+}
+.ic-star:before {
+  content: "\e923";
+}
+.ic-star-circle:before {
+  content: "\e924";
+}
+.ic-star-f:before {
+  content: "\e925";
+}
+.ic-ticket-circle:before {
+  content: "\e926";
+}
+.ic-twitter-circle:before {
+  content: "\e927";
+}
+.ic-user:before {
+  content: "\e928";
+}
+.ic-user-key:before {
+  content: "\e929";
+}
+.ic-user-key-mobile:before {
+  content: "\e92a";
+}
+.ic-warning:before {
+  content: "\e92b";
+}
+.ic-whatsapp-circle:before {
+  content: "\e92c";
+}

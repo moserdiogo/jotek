@@ -1,0 +1,37 @@
+.user-rating {
+
+    .grid {
+        position: relative;
+    }
+
+    .user-rating-item {
+
+        img {
+            @media screen and (min-device-width: 0px) and (max-device-width: 576px) { 
+                width: 35px; 
+                height: 35px;
+            }            
+            @media screen and (min-device-width: 576px) {
+                width: 60px; 
+                height: 60px;
+            }
+        }
+
+        .user-comment {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 10;
+        }        
+
+        .user-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;            
+        }
+
+    }
+}

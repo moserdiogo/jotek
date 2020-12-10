@@ -1,0 +1,287 @@
+// Corpo
+body {
+    font-family: FontPrimary;
+    color: #4a4f51;
+    display: flex;
+    flex-direction: column;
+}
+
+// Rodapé
+footer {
+    margin-top:auto; 
+}
+
+// Higlight
+.hl {
+    background-color: #efefef;
+}
+
+.ft-ac {
+    font-family: FontAccent;
+}
+
+// Texto responsivo
+.tx-rp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Tipos de font
+.ft-pm {
+    font-family: FontPrimary;
+}
+
+// Peso da fonte
+.tx-b {
+    font-weight: bold;
+}
+
+// Trasformação do texto
+.tx-tf-l {
+    text-transform: lowercase;
+}
+
+.tx-tf-u {
+    text-transform: uppercase;
+}
+
+.tx-tf-c {
+    text-transform: capitalize;
+}
+
+.tx-lt {
+    text-decoration: line-through;
+}
+
+.tx-j {
+    text-align: justify;
+}
+
+// Altura total
+.fh {
+    height: $full;
+}
+
+// Largura total
+.fw {
+    width: $full;
+}
+
+.wt-color {
+    color: $color-whatsapp;
+}
+
+.fb-color {
+    color: $color-facebook;
+}
+
+.tw-color {
+    color: $color-twitter;
+}
+
+.tx-r {
+    text-align: right;
+}
+
+.tx-l {
+    text-align: left;
+}
+
+.tx-c {
+    text-align: center;
+}
+
+// Display em bloco
+.bk {
+    display: block;
+}
+
+// posicao relativa
+.rl {
+    position: relative;
+}
+
+// posicao relativa
+.ab {
+    position: absolute;
+}
+
+// Display em bloco
+.ib {
+    display: inline-block;
+}
+
+// Invisível
+.hd {
+    display: none !important;
+}
+
+.vh {
+    visibility: hidden;
+}
+
+// Tamanho máximo do conteudo
+.max-content {
+    width: max-content;
+}
+
+// Cursor pointer
+.cp {
+    cursor: pointer;
+}
+
+// Loop de dimensões
+@each $key, $value in $dimens {
+
+    // Cantos arendondados
+    @include border-radius($key, $value);
+
+    // Preenchimento
+    @include padding($key, $value);
+
+    // Preenchimento no topo
+    @include padding-top($key, $value);
+
+    // Preenchimento a direita
+    @include padding-right($key, $value);
+
+    // Preenchimento a baixo
+    @include padding-bottom($key, $value);
+
+    // Preenchimento a esquerda
+    @include padding-left($key, $value);
+
+    // Margem 
+    @include margin($key, $value);
+
+    // Margem no topo
+    @include margin-top($key, $value);
+
+    // Margem a direita
+    @include margin-right($key, $value);
+
+    // Margem para baixo
+    @include margin-bottom($key, $value);
+
+    // Margem a direita
+    @include margin-left($key, $value);
+
+    // Preenchimento das tabelas
+    @include padding-table($key, $value);
+
+}
+
+// Loop de cores
+@each $key, $value in $theme-colors {
+    
+    // Cor de fundo
+    @include background-color($key, $value);
+
+    // Cor de fundo ao passar o mouse
+    @include background-color-hover($key, $value);
+
+    // Cores dos textos
+    @include text-color($key, $value);
+
+    // Cor do texto ao passa o mouse
+    @include text-color-hover($key, $value);
+
+    // Cor da borda
+    @include border-color($key, $value);
+
+    // Cor do placeholder
+    @include placeholder-color($key, $value);
+
+    // Cor do placeholder
+    @include table-color($key, $value);
+
+}
+
+// Tamanho das fontes
+@each $key, $value in $font-sizes {
+    
+    // Tamanho das fontes
+    @include text-size($key, $value);
+
+    // Tamanho dos placeholders
+    @include placeholder-font-size($key, $value);
+}
+
+// Tamanho dos cabeçalhos
+@each $key, $value in $heading-sizes {
+    @include heading-size($key, $value);
+}
+
+// Tamanho das bordas
+@each $key, $value in $border-width {
+    @include border-width($key, $value);
+}
+
+// Estilo das bordas
+@each $key, $value in $border-styles {
+    
+    // estilo das bordas
+    @include border-style($key, $value);
+
+    // Estilo das bordas ao topo
+    @include border-top-style($key, $value);
+
+    // Estilo das bordas a direita
+    @include border-right-style($key, $value);
+
+    // Estilo das bordas a baixo
+    @include border-bottom-style($key, $value);
+
+    // Estilo das bordas a esquerda
+    @include border-left-style($key, $value);
+
+}
+
+// Espaçamento entre letras
+@each $key, $value in $border-width {
+    @include letter-spacing($key, $value);
+}
+
+// Espaçamento entre linhas
+@each $key, $value in $line-heights {
+    @include line-height($key, $value);
+}
+
+// Loop de resoluções
+@each $key, $value in $breakpoints {
+
+    // Invisível por resolução
+    @include hidden($key, $value);
+    
+    // Visível por resolução
+    @include visible($key, $value);
+
+}
+
+// Disposição do texto
+@each $key, $value in $text-dispositions {
+
+    // Disposição do texto
+    @include text-disposition($key, $value);
+
+    
+    // Disposição por resolução
+    @include text-resolution-disposition($key, $value);
+}
+
+// Sombras
+@each $key, $value in $box-shadows {
+    @include box-shadow($key, $value);
+}
+
+// Sombras
+@each $key, $value in $slider-colors {
+    @include slider-colored($key, $value);
+}
+
+
+// Opacidade
+@each $key, $value in $opacities {
+    @include opacity($key, $value);
+}

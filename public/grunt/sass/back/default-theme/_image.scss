@@ -1,0 +1,16 @@
+
+// Imagem responsiva por resoluções
+.img-rp {
+    height: auto;
+    width: $full;
+}
+
+@each $key, $value in $breakpoints {
+
+    @include responsive-image($key, $value);
+}
+
+// Imagem redonda perfil
+.img-rd {
+    border-radius: $full;
+}

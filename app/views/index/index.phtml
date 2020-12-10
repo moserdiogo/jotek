@@ -1,0 +1,64 @@
+
+<?php $this->partial('components/header'); ?>
+
+<!-- Contato -->
+<section class="contact">
+
+    <div class="ct">
+        <div class="row">
+            <div class="col-md-8">
+                    
+                <div class="contact-form mt-2 mt-1-lg pd-2 pt-1-lg pl-2-lg pr-2-lg bd-st-sl bd-wd-1 mb-4 bd-cl-pm-100 bd-rd-sm">
+                <div class="heading-layout3">
+                    <h3 class="mb-1">Leave a Reply</h3>
+                    <p class="mb-2 tx-md-lg">Responderemos o mais breve possível.</p>
+                </div>
+                <form method="post" action="" class="contact-form-box" id="contact-form" novalidate="true">
+                    
+                    <div class="tx-ac mb-2 tx-lg-lg">
+                        <?php echo $this->flashSession->output() ?>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-12 form-group mb-1">
+                            <input type="text" placeholder="Nome" class="form-control bg-pm-50 pt-1 pb-1 fw pl-1 bd-rd-sm" name="name" value="<?= isset($field['name']) ? $field['name'] : '' ?>">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 form-group mb-1">
+                            <input type="email" placeholder="E-mail" class="form-control bg-pm-50 pt-1 pb-1 fw pl-1 bd-rd-sm" name="email" value="<?= isset($field['email']) ? $field['email'] : '' ?>">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    
+                        <div class="col-md-6 col-12 form-group mb-1">
+                            <input type="text" placeholder="Telefone" class="form-control bg-pm-50 pt-1 pb-1 fw pl-1 bd-rd-sm" name="phone" value="<?= isset($field['phone']) ? $field['phone'] : '' ?>">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    
+                        <div class="col-md-6 col-12 form-group mb-1">
+                            <input type="text" placeholder="Assunto" class="form-control bg-pm-50 pt-1 pb-1 fw pl-1 bd-rd-sm" name="subject" value="<?= isset($field['subject']) ? $field['subject'] : '' ?>">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    
+                        <div class="col-12 form-group mb-1">
+                            <textarea placeholder="Mensagem" class="textarea form-control bg-pm-50 pt-1 pb-1 fw pl-1 bd-rd-sm" rows="7" cols="20" name="message"><?= isset($field['message']) ? $field['message'] : '' ?></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <input type='hidden' name='<?= $this->security->getTokenKey() ?>' value='<?= $this->security->getToken() ?>'/>
+
+                        <div class="col-12 form-group mb-1 tx-c">
+                            <button type="submit" class="bg-ac tx-wt pt-1 pl-2 pr-2 pb-1 tx-wt">Enviar</button>
+                        </div>
+                    </div>
+                    <div class="form-response"></div>
+                </form>
+                </div>
+            </div>
+
+            <div class="col-md-4 bg-bk">
+                wjoife
+            </div>
+        </div>
+    </div>
+</section>

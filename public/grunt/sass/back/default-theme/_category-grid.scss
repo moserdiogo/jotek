@@ -1,0 +1,19 @@
+.category-grid {
+    .category-grid-item {
+        cursor: pointer;
+        display: block;
+        position: relative;
+
+        button {
+            position: absolute;
+            bottom: 0;
+            left:0;
+        }
+    
+        img {
+            border-radius: $dimen-1x;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+    }
+}

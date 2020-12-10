@@ -1,0 +1,59 @@
+// Cross browser mixins 
+@import 'compass/css3';
+
+// Swiper
+@import '../swiper/swiper';
+
+// NoUiSlider
+@import '../nouislider/nouislider';
+
+// Cofry icons
+// @import '../cofry-icons/cofry-icons';
+@import '../agencia_icons/agencia-icons';
+
+
+// Components
+@import 'reset';
+@import 'variables';
+@import 'mixin';
+@import 'animation';
+@import 'pallete';
+@import 'font';
+@import 'paragraph';
+@import 'typography';
+@import 'table';
+@import 'loader';
+@import 'dropdown';
+@import 'inputs';
+@import 'grid';
+@import 'image';
+@import 'carousel';
+@import 'category-grid';
+@import 'partner-grid';
+@import 'alphabetical-list';
+@import 'select';
+@import 'breadcrumb';
+@import 'menu';
+@import 'menu-mobile';
+@import 'side-mobile-menu';
+@import 'product';
+@import 'user-rating';
+@import 'my-account';
+@import 'cupom-list';
+@import 'modal';
+@import 'partner-tab';
+@import 'cupom-sale-filter';
+@import 'scroll-bar';
+@import 'filter-mobile';
+@import 'institutional';
+@import 'main-carousel';
+@import 'category-highlights';
+@import 'alphabetical-category-list';
+@import 'cupom-filter';
+
+// Override
+@import 'override/swiper';
+@import 'override/nouislider';
+
+// Correções
+@import 'fix';

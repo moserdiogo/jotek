@@ -1,0 +1,165 @@
+.carousel {
+    margin: 0 auto;
+    position: relative;
+
+    .carousel-content {
+        overflow: hidden;
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            float: left;
+            transform: translate3d(0,0,0);
+
+            .shifting {
+                transition: left .2s ease-out;
+            }
+
+            // Item
+            .carousel-item {
+                -webkit-flex-shrink: 0;
+                -ms-flex-negative: 0;
+                flex-shrink: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+        }
+    }
+
+    // Controles(setas) "próximo" e "anterior"
+    .carousel-btn {
+        position: absolute;
+        top: $half;
+        cursor: pointer;
+        @include transform(translateY(-$half));
+
+        &.carousel-btn-prev {
+            right: auto;
+            left: - 70px;
+        }
+
+        &.carousel-btn-next {
+            right: - 70px;
+            left: auto;
+        }
+    }
+
+    // Paginação "bolinhas"
+    .carousel-pagination {
+        position: absolute;
+        text-align: center;
+        bottom: 10px;
+        width: 100%;
+        left: 0;
+
+        > i {
+            cursor: pointer;
+            padding: 0 6px;
+            font-size: 16px;
+        }
+    }
+
+    .carousel-pagination-bullet {
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        border: 1px solid $color-default;
+        border-radius: 100%;
+        background: none;
+        margin: 0 6px;
+        opacity: 0.8;
+    }
+
+    .carousel-pagination-bullet:active {
+        background-color: $color-default;
+    }
+}
+
+// Carrossel Swiper
+
+
+
+/* .carousel {
+    margin: 0 auto;
+    position: relative;
+
+    .carousel-content {
+        overflow: hidden;
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            float: left;
+            transform: translate3d(0,0,0);
+
+            .shifting {
+                transition: left .2s ease-out;
+            }
+
+            // Item
+            .carousel-item {
+                -webkit-flex-shrink: 0;
+                -ms-flex-negative: 0;
+                flex-shrink: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+        }
+    }
+
+    // Controles(setas) "próximo" e "anterior"
+    .carousel-btn {
+        position: absolute;
+        top: $half;
+        cursor: pointer;
+        @include transform(translateY(-$half));
+
+        &.carousel-btn-prev {
+            right: auto;
+            left: - 70px;
+        }
+
+        &.carousel-btn-next {
+            right: - 70px;
+            left: auto;
+        }
+    }
+
+    // Paginação "bolinhas"
+    .carousel-pagination {
+        position: absolute;
+        text-align: center;
+        bottom: 10px;
+        width: 100%;
+        left: 0;
+
+        > i {
+            cursor: pointer;
+            padding: 0 6px;
+            font-size: 12px;
+        }
+    }
+
+    .carousel-pagination-bullet {
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        border: 1px solid $color-default;
+        border-radius: 100%;
+        background: none;
+        margin: 0 6px;
+        opacity: 0.8;
+    }
+
+    .carousel-pagination-bullet:active {
+        background-color: $color-default;
+    }
+} */

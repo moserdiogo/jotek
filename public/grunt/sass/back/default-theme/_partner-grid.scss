@@ -1,0 +1,17 @@
+.partner-grid {
+
+    .partner-grid-item {
+        position: relative;
+
+        img {
+            width: 100px;
+        }
+
+        a {
+            position: absolute;
+            left: 0;
+            width: $full;
+            bottom: -13%;
+        }
+    }
+}

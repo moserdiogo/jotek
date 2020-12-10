@@ -1,0 +1,16 @@
+.cart-button {
+
+    .cart-products {
+
+        .cart-row {
+
+            &.animate {
+                animation: addRow $time-medium 1 ease-out forwards;
+            }
+
+            &.animate-delete {
+                animation: deleteRow $time-medium 1 ease-out forwards;
+            }
+        }
+    }
+}

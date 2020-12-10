@@ -1,0 +1,372 @@
+// Modal background / container
+.md-bg {
+    @extend .fx;
+    @extend .ct-fl;
+    @extend .pd-1;
+    @extend .transition-all;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $color-smoke;
+    z-index: 1050;
+    overflow-y: auto;
+    @include animation(fadeIn linear $time-default);
+
+    &.rise {
+        .md-pn {
+            @include animation(riseIn linear $time-default);
+        }
+    }
+
+    &.scale {
+        .md-pn {
+            @include animation(scaleIn linear $time-default);
+        }
+    }
+
+    &.hide {
+        @include animation(fadeOut linear $time-default forwards);
+
+        &.rise {
+            .md-pn {
+                @include animation(riseOut linear $time-default forwards);
+            }
+        }
+
+        &.scale {
+            .md-pn {
+                @include animation(scaleOut linear $time-default forwards);
+            }
+        }
+        
+    }
+
+    // Modal primary
+    &.md-pm {
+        .md-hd {
+            @extend .bg-pm;
+            @extend .tx-wt;
+
+            .md-cl {
+                @extend .tx-wt;
+            }
+        }
+
+        border: none;
+    }
+
+    // Modal info
+    &.md-if {
+        .md-hd {
+            @extend .bg-if;
+            @extend .tx-wt;
+
+            .md-cl {
+                @extend .tx-wt;
+            }
+        }
+
+        border: none;
+    }
+
+    // Modal success
+    &.md-sc {
+        .md-hd {
+            @extend .bg-sc;
+            @extend .tx-wt;
+
+            .md-cl {
+                @extend .tx-wt;
+            }
+        }
+
+        border: none;
+    }
+
+    // Modal warning
+    &.md-wn {
+        .md-hd {
+            @extend .bg-wn;
+            @extend .tx-wt;
+
+            .md-cl {
+                @extend .tx-wt;
+            }
+        }
+
+        border: none;
+    }
+
+    // Modal danger
+    &.md-dg {
+        .md-hd {
+            @extend .bg-dg;
+            @extend .tx-wt;
+
+            .md-cl {
+                @extend .tx-wt;
+            }
+        }
+
+        border: none;
+    }
+
+    // Alert style
+    &.alert {
+        // Panel
+        .md-pn {
+            // Override
+            .md-hd {
+                height: unset;
+                @extend .bg-wt;
+                @extend .tx-c;
+                border-bottom: unset;
+                .md-hd-c {
+                    @extend .tx-bk;
+                    @extend .tx-b;
+                    font-size: $font-h4;
+                }
+                .md-hd-tl {
+                    @extend .ab;
+                    @extend .tx-bk;
+                    right: 0;
+                    top: $dimen-md;
+                    i {
+                        @extend .tx-xl;
+                    }
+                }
+                .md-hd-i {
+                    font-size: $dimen-4x;
+                    @extend .tx-bk;
+                    @extend .fw;
+                    @include animation(scaleIn linear $time-default);
+                    animation-fill-mode: backwards;
+                    animation-delay: $time-default;
+                }
+            }
+
+            .md-ct {
+                @extend .tx-c;
+            }
+
+            .md-ft {
+                border-top: unset;
+                @extend .pb-1;
+            }
+        }
+
+        // Primary
+        &.md-pm {
+            .md-pn {
+                .md-hd {
+                    border-top: $dimen-md solid $color-primary;
+                    .md-hd-i {
+                        @extend .tx-pm;
+                    }
+                }
+            }
+        }
+
+        // Info
+        &.md-if {
+            .md-pn {
+                .md-hd {
+                    border-top: $dimen-md solid $color-info;
+                    .md-hd-i {
+                        @extend .tx-if;
+                    }
+                }
+            }
+        }
+
+        // Warning
+        &.md-wn {
+            .md-pn {
+                .md-hd {
+                    border-top: $dimen-md solid $color-warning;
+                    .md-hd-i {
+                        @extend .tx-wn;
+                    }
+                }
+            }
+        }
+
+        // Success
+        &.md-sc {
+            .md-pn {
+                .md-hd {
+                    border-top: $dimen-md solid $color-success;
+                    .md-hd-i {
+                        @extend .tx-sc;
+                    }
+                }
+            }
+        }
+
+        // Danger
+        &.md-dg {
+            .md-pn {
+                .md-hd {
+                    border-top: $dimen-md solid $color-danger;
+                    .md-hd-i {
+                        @extend .tx-dg;
+                    }
+                }
+            }
+        }
+    }
+
+    // Fullscreen style
+    &.fullscreen {
+        background-color: $color-netflix;
+        .md-pn {
+            background-color: $color-alpha;
+            box-shadow: unset;
+            .md-hd {
+                height: unset;
+                @extend .tx-c;
+                border-bottom: unset;
+                .md-hd-c {
+                    @extend .tx-wt;
+                    @extend .tx-b;
+                    font-size: $font-h4;
+                }
+                .md-hd-tl {
+                    @extend .ab;
+                    @extend .tx-bk;
+                    right: 0;
+                    top: 0;
+                    i {
+                        font-size: $font-h5 !important;
+                        @extend .tx-xl;
+                        @extend .tx-wt;
+                    }
+                }
+                .md-hd-i {
+                    color: $color-warning;
+                    @extend .pr-md;
+                    @include animation(scaleIn linear $time-default);
+                    animation-fill-mode: backwards;
+                    animation-delay: $time-default;
+                }
+            }
+
+            .md-ct {
+                @extend .tx-wt;
+                @extend .tx-c;
+            }
+
+            .md-ft {
+                border-top: unset;
+
+                .btn {
+                    background-color: darken($color-primary, 10%);
+                    border-color: darken($color-primary, 10%);;
+                    color: $color-white;
+                    * {
+                        color: $color-white;
+                    }
+
+                    &:hover {
+                        background-color: darken($color-primary, 5%);
+                        border-color: darken($color-primary, 5%);;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+// Modal row alignment
+.md-al {
+    @extend .row;
+    @extend .fh;
+
+    // Flex bug
+    &.al-it-c {
+        > [class*="col-"] {
+            margin: auto;
+        }
+    }
+}
+
+// Modal panel
+.md-pn {
+    position: relative;
+    @extend .bg-wt, .mb-1;
+    .ic-close{
+        position: absolute;
+        right: 0;
+        padding: $dimen-md;
+        margin: $dimen-md;
+        z-index: 1;
+        cursor: pointer;
+    }
+    // Modal heading
+    .md-hd {
+        @extend .rl;
+        height: $dimen-3x + $dimen-sm; // 50px
+        @extend .bd-cl-df-200, .bd-b-st-sl, .bd-wd-1; 
+
+        .md-hd-ct {
+            @extend .ct-fl;
+            @extend .fh;
+
+            .md-hd-row {
+                @extend .row;
+                @extend .fh;
+                @extend .al-it-c;
+
+                // Modal title
+                .md-hd-c {
+                    @extend .col;
+                    font-weight: bold;
+                    color: $color-primary;
+                    @extend .tx-ct, .tx-xxl;
+                }
+                
+                // Modal tools
+                .md-hd-tl {
+                    @extend .col-auto;
+                    > i {
+                        //@extend .clickable;
+                        @extend .pd-md;
+                    } 
+                }
+            }
+        }
+    }
+
+    // Modal content
+    .md-ct {
+        @extend .pd-1;
+    }
+
+    // Modal footer
+    .md-ft {
+        min-height: $dimen-1x;
+        @include border-bottom-left-radius($dimen-xs);
+        @include border-bottom-right-radius($dimen-xs);
+        @extend .bd-cl-df-200, .bd-t-st-sl, .bd-wd-1;
+
+        .md-ft-ct {
+            @extend .ct-fl;
+            padding-bottom: $dimen-1x - $dimen-sm;
+            padding-top: $dimen-1x - $dimen-sm;
+            @extend .fh;
+
+            .md-ft-row {
+                @extend .row;
+                @extend .fh;
+                @extend .al-it-c;
+
+                .md-ft-c {
+                    @extend .col-auto;
+                    //@extend .col-sp-sm;
+                }
+            }
+        }
+    }
+}

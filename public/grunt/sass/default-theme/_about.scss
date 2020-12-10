@@ -1,0 +1,118 @@
+// Faz com que o vídeo cubra toda a div
+.img-ab {
+    position: absolute;
+    height: $full;
+    width: $full;
+    object-fit: fill;
+    -o-object-fit: fill;
+  
+
+}
+
+// Faz com que a div cubra toda a tela quando a página é carregada
+.img-ab-ct {
+    position: relative;
+    width: $full;
+    height: $full;
+    overflow: hidden;
+
+    .img-ab-bg {
+        position: absolute;
+        background: $color-black;
+        opacity: 0.2;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+// Mensagem em cima do vídeo
+.caption {
+    position: absolute;
+    top: $half;
+    left: $half;
+    transform: translate(-50%, -50%);
+}
+
+header {
+ 
+    @include transition(all 0.2s ease-in-out);
+}
+
+//TODO: Verificar como os menus e dropdowns da página serão
+// Barra de navegação da página sobre a marca
+.menu-about {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    // Remove a cor de fundo do header
+    header {
+        //transition: all 0.5s;
+        background-color: $color-alpha;
+
+        // Remove as bordas das divs do header
+        div {
+            border-color: $color-alpha;
+        }
+
+        // Altera as cores dos parágrafos
+        p, p > a {
+            opacity: 0;
+            // color: $color-white !important;
+        }
+
+        //TODO: Fazer com o que o hover no link de produtos e coleções altere a cor do menu
+        ul {
+            a {
+                color: $color-white !important;
+            }
+        }
+
+        // Transforma a imagem para branco
+        .img-fr {
+            filter: brightness(0) invert(1);
+            -webkit-filter: brightness(0) invert(1);        
+        }
+   
+    }     
+}
+
+/* .menu-about::before {
+    transition: all 0.5s;
+}
+
+.menu-about::after {
+    transition: all 0.5s;
+} */
+
+// Esconde o menu
+.hide-menu {
+    visibility: hidden;
+    opacity: 0;
+    -moz-transition: opacity 0.5s, visibility 0.5s linear;
+    -o-transition: opacity 0.5s, visibility 0.5s linear;
+    -webkit-transition: opacity 0.5s, visibility 0.5s linear;
+    transition: opacity 0.5s, visibility 0.5s linear;
+}
+
+// Mostra o menu
+.show-menu {
+    visibility: visible;
+    opacity: 1;
+    -moz-transition: opacity 0.5s, visibility 0.5s linear;
+    -o-transition: opacity 0.5s, visibility 0.5s linear;
+    -webkit-transition: opacity 0.5s, visibility 0.5s linear;
+    transition: opacity 0.5s, visibility 0.5s linear;
+}
+
+// Fundo da coluna do swiper
+.swiper-col {
+    height: $full;
+    width: $full;
+    background-image: url('img/eventos.jpg');
+    background-size:cover;
+    background-attachment:fixed;
+    background-position: center center;
+}

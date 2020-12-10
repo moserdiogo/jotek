@@ -1,0 +1,62 @@
+// Checkbox 
+.cb {
+  //@extend .no-sl;
+  label {
+      cursor: pointer;
+      margin-bottom: 0;
+      position: relative;
+      color: $checkbox-label-text-color;  
+      padding-left: $checkbox-label-padding-left;
+      font-size: $checkbox-label-font-size;
+      line-height: $checkbox-label-line-height;     
+  }
+
+  label::before,
+  label::after {
+      content: " ";
+      cursor: pointer;
+      left: 0;
+      top: 0;
+      display: inline-block;
+      position: absolute;
+      background-color: transparent;
+      width: $checkbox-label-before-width;
+      height: $checkbox-label-before-height;
+      border-radius: $checkbox-label-before-border-radius;   
+      border: $checkbox-label-before-border;
+      //@include transition($checkbox-label-before-transition);
+  }
+
+  label::after {
+      content: "\2C";
+      font-family: 'AgenciaIcons'; 
+      text-align: center;
+      top: 0;
+      opacity: 0;
+      border: 0;
+      background-color: inherit;
+      font-size: $checkbox-label-after-font-size;
+      color: $checkbox-label-after-text-color;   
+  }
+  input[type="checkbox"] {
+      opacity: 0;
+      //position: absolute;
+      visibility: hidden;
+  }
+  input[type="checkbox"]:checked+label::after {
+      opacity: 1;
+      color: $color-primary;
+  }
+  input[type="checkbox"]:checked+label::before {
+      border:  1px solid $checkbox-checked-border;
+  }
+  input[type="checkbox"]:disabled+label {
+      cursor: not-allowed;
+      //opacity: $inputs-disabled-opacity; 
+      color: $checkbox-disabled-text-color;  
+  }
+  input[type="checkbox"]:disabled+label::before,
+  input[type="checkbox"]:disabled+label::after {
+      cursor: not-allowed;
+  }
+}

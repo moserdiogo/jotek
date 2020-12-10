@@ -1,0 +1,15 @@
+.category-grid {
+    .category-grid-item {
+        position: relative;
+
+        button {
+            position: absolute;
+            bottom: 0;
+            left:0;
+        }
+    
+        img {
+            border-radius: $dimen-1x;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.colapse{
+	&.active i{
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+}
+.colapse-menu{
+	overflow: hidden;
+	max-height: 0;
+	&.open{
+		max-height: 1000vh;
+	}
+}

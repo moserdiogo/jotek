@@ -1,0 +1,40 @@
+// Scroll-Bar
+.scroll-bar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    // cursor: pointer;
+    // width: $full;
+    border: $scroll-bar-border;
+}
+
+/* trick to only apply in webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .scroll-bar {
+        background-color: $scroll-bar-responsive-background-color;
+        scrollbar-color: $scroll-bar-responsive-background-color transparent;
+        -webkit-background-clip: text;
+        @include transition(background $time-default $ease);
+
+        @supports (-moz-appearance:none) {
+            background-color: transparent !important; 
+        }
+
+    }
+    .scroll-bar:hover {
+        background-color: $scroll-bar-responsive-background-color-hover;
+        scrollbar-color: $scroll-bar-responsive-background-color-hover transparent;
+        @supports (-moz-appearance:none) {
+            background-color: transparent !important; 
+        }
+
+    }
+    .scroll-bar::-webkit-scrollbar {
+        width: $scroll-bar-responsive-width;
+        height: $scroll-bar-responsive-height;
+    }
+
+    .scroll-bar::-webkit-scrollbar-thumb {
+        background-color: inherit;
+        border-radius: $scroll-bar-responsive-border-radius;
+    }
+}

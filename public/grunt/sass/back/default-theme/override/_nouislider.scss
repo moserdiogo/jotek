@@ -1,0 +1,60 @@
+// NoUiSlider
+.noUi-connect {
+    background: $slider-connect-background;
+}
+
+.noUi-target {
+    height: $slider-target-height;
+    border: $slider-target-border;
+    background-color: $slider-target-background-color;
+    box-shadow: none;
+}
+
+.noUi-handle {
+    background-color: $color-default-d20;
+    border: 1px solid $color-default-d20;
+}
+
+.noUi-horizontal .noUi-handle {
+    border-radius: $full;
+    // border: $slider-handle-border;
+    order: 1px solid $color-default-d20;
+    height: $slider-handle-height;
+    width: $slider-handle-width;
+    top: $slider-handle-top;
+    @include transition($slider-handle-transition);
+    box-shadow: none;
+}
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+    right: $slider-handle-right;
+    left: $slider-handle-left;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+    display: none !important;
+}
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+    @include transition($slider-state-transition);
+}
+
+.noUi-state-drag * {
+    cursor: inherit !important;
+}
+
+.noUi-handle.noUi-active {
+    @include transform($slider-handle-active-trasform);
+}
+
+.noUi-tooltip {
+    color: $slider-tooltip-text-color;
+    font-size: $slider-tooltip-font-size;
+}
+
+// NoUiSlider
+@each $key, $color in $slider-colors {
+    @include slider-colored($key, $color);
+}

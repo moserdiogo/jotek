@@ -1,0 +1,42 @@
+.side-filter {
+
+    // Menu lateral
+    .side-mobile-filter {
+        position: fixed;
+        top: 0;
+        left: -100vh;
+        z-index: 30;
+        @include transition(all 0.4s ease-in-out);
+    
+        &.active {
+            top: 0;
+            left: 0;
+            z-index: 30;
+            @include transition(all 0.2s ease-in-out);
+        }
+        
+    }
+
+    // Botão que fecha o menu lateral
+    .side-filter-mobile-close {
+        background-color: $color-primary;
+    }
+
+    // Backgroud quando o menu lateral está ativo
+    .side-filter-background {
+        position: fixed;
+        opacity: 0;
+        @include transition(opacity 0.4s ease-in-out);        
+
+        &.active {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $color-black;
+            opacity: 0.5;
+            @include transition(opacity 0.2s ease-in-out);
+            z-index: 30;
+        }
+    }
+}

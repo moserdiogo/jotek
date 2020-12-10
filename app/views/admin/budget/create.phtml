@@ -1,0 +1,96 @@
+
+
+<div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <?php $this->partial('components/adm-nav'); ?>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <?php $this->partial('components/adm-side-nav'); ?>
+    <!-- /.Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                
+                <!-- Main row -->
+                <div class="row pt-3">
+                    <!-- Left col -->
+                    <div class="col-md-3"></div>
+
+                    <div class="col-md-6">
+                        <?php //$this->partial('components/forms/budget-create'); ?>
+                        
+                        <button type="button" class="btn btn-primary budget-new">Adicionar</button>
+
+                            <div class="card mt-2">
+                                <div class="card-header">
+                                    <h3 class="card-title">Striped Full Width Table</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                <table class="table table-sm table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>Task</th>
+                                                
+                                                <th style="width: 40px">Label</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1.</td>
+                                                <td>Update software</td>
+                                                
+                                                <td><span class="badge bg-danger pr-1 pl-1 pt-1 pb-1 cp">Excluir</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2.</td>
+                                                <td>Clean database</td>
+                                                
+                                                <td><span class="badge bg-warning">70%</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3.</td>
+                                                <td>Ar condicionado split 18000 btus Sprins</td>
+                                                
+                                                <td><span class="badge bg-primary">30%</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4.</td>
+                                                <td>Fix and squish bugs</td>
+                                                
+                                                <td><span class="badge bg-success">90%</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+
+
+                    </div>
+
+                    <div class="col-md-3"></div>
+                    <!-- /.col -->        
+                </div>
+                <!-- /.row -->
+            </div>
+            <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Footer -->
+    <?php $this->partial('components/footer'); ?>
+    <!-- /.Footer -->
+</div>
+<!-- ./wrapper -->

@@ -1,0 +1,93 @@
+.menu-mobile {
+
+    // Barra do menu mobile
+    .menu-mobile-navbar {
+        position: relative;
+        z-index: 40;
+        
+        // Icone de busca do menu mobile
+        .menu-mobile-search-icon {
+            width: 0;
+            padding: 0;
+            @include transform(scale(0));
+            @include transition(all 0.2s ease-in-out);
+            
+            &.active {
+                width: $icon-1x + $dimen-1x;
+                padding-left: $dimen-md;
+                padding-right: $dimen-md;
+                @include transform(scale(1));
+                @include transition(all 0.2s ease-in-out);
+                
+            }
+        }
+
+    }
+
+    // barra de pesquisa do menu mobile
+    .menu-mobile-search {
+        position: absolute;
+        z-index: -1;
+        @include transform(translateY(-$full));
+        @include transition(all 0.2s ease-in-out);
+        
+        &.active {
+            @include transform(translateY(0px));
+        }
+
+        .search-content {
+            max-width:500px; 
+            min-width: 500px; 
+            max-height: 220px; 
+            min-height: 220px;
+        }
+    }
+
+    // Menu lateral
+    .side-mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -1000px;
+        z-index: 40;
+        @include transition(all 0.4s ease-in-out);
+    
+        &.active {
+            top: 0;
+            right: 0;
+            z-index: 40;
+            @include transition(all 0.2s ease-in-out);
+        }
+        
+    }
+
+    // Botão que fecha o menu lateral
+    .side-menu-mobile-close {
+        background-color: $color-primary;
+    }
+
+    // Backgroud quando o menu lateral está ativo
+    .side-menu-background {
+        position: fixed;
+        opacity: 0;
+        @include transition(opacity 0.4s ease-in-out);        
+
+        &.active {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $color-black;
+            opacity: 0.5;
+            @include transition(opacity 0.2s ease-in-out);
+            z-index: 40;
+        }
+    }
+
+    .result-list-mobile {
+        max-width: 101vw;
+        min-width: 101vw;
+        max-height: calc(101vh - 110px);
+        min-height: calc(101vh - 110px);
+    }
+
+}

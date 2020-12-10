@@ -1,0 +1,53 @@
+::-webkit-input-placeholder {
+    font-size: $font-lg;
+}
+
+input, textarea {
+    font-size: $font-xl;
+}
+
+select {
+    font-size: $font-xl;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: 19px;
+    width: 19px;
+    border-color: $color-smoke-dark;
+    border: 1px solid;
+    border-radius: 50%;
+
+}
+
+input[type="checkbox"]:checked {
+    position: relative;
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+}
+
+input[type="checkbox"]:checked:after {
+    position: absolute;
+    display: block;
+    // Símbolo de Ok. //
+    content: "\2713";
+    color: #fff;
+    bottom: 4%;
+    left: 15%;
+}
+
+input[type="checkbox"]:disabled {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+input[type="checkbox"]:disabled:after {
+    border-color: #7b7b7b;
+}
